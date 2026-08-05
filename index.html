@@ -15,17 +15,49 @@
     body {
       background-color: #f8fafc;
       color: #334155;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
     }
 
+    /* --- MENU BAR / NAVBAR --- */
+    nav {
+      background-color: #ffffff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #64748b;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* --- HERO SECTION --- */
     .container {
+      max-width: 800px;
+      margin: 40px auto;
       background: #ffffff;
-      max-width: 600px;
-      width: 100%;
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -45,28 +77,78 @@
       margin-bottom: 30px;
     }
 
-    .btn {
-      display: inline-block;
-      background-color: #2563eb;
+    /* --- TOMBOL WHATSAPP --- */
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25D366;
       color: #ffffff;
       padding: 14px 28px;
       text-decoration: none;
       font-weight: 600;
       border-radius: 8px;
+      font-size: 1.05rem;
       transition: background-color 0.2s ease;
     }
 
-    .btn:hover {
-      background-color: #1d4ed8;
+    .btn-wa:hover {
+      background-color: #128C7E;
+    }
+
+    /* --- INFORMASI KONTAK --- */
+    .contact-info {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    /* Responsif untuk Layar HP */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .contact-info {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- Menu Bar -->
+  <nav>
+    <div class="logo">BrandSaya</div>
+    <ul class="nav-links">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Konten Utama -->
+  <div class="container" id="home">
     <h1>Produk Hebat Segera Hadir</h1>
-    <p>Kami sedang menyiapkan sesuatu yang luar biasa untuk Anda. Klik tombol di bawah ini untuk menjadi yang pertama mendapatkan info terbaru.</p>
-    <a href="#" class="btn">Pelajari Selengkapnya</a>
+    <p>Kami siap membantu kebutuhan Anda. Klik tombol di bawah ini untuk langsung terhubung dengan tim kami via WhatsApp.</p>
+    
+    <!-- Ganti '6281234567890' dengan nomor WhatsApp Anda -->
+    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20produk%20Anda" class="btn-wa" target="_blank">
+      Hubungi via WhatsApp
+    </a>
+
+    <!-- Bagian Kontak -->
+    <div class="contact-info" id="contact">
+      <div>📍 <strong>Lokasi:</strong> Jakarta, Indonesia</div>
+      <div>✉️ <strong>Email:</strong> info@brandanda.com</div>
+      <div>📞 <strong>Telepon:</strong> +62 812-3456-7890</div>
+    </div>
   </div>
 
 </body>
