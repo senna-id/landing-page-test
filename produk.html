@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Katalog Produk - PT Selaras Dinamika Niaga (SENNA)</title>
+  <meta name="description" content="Katalog produk kelistrikan dan pengadaan barang berkualitas tinggi dari PT Selaras Dinamika Niaga (SENNA).">
+  <meta name="keywords" content="SENNA, MCB, Trafo, Kabel, Kelistrikan, Pengadaan Barang">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Theme Color SENNA -->
+  <style>
+    :root {
+      --accent-color: #a67c1e !important;
+      --heading-color: #a67c1e !important;
+      --nav-hover-color: #a67c1e !important;
+      --surface-color: #ffffff;
+      --contrast-color: #ffffff;
+    }
+
+    /* Header Page Title / Banner */
+    .page-title {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/img/hero-bg.jpg') center center;
+      background-size: cover;
+      padding: 80px 0 60px 0;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .page-title h1 {
+      color: #a67c1e !important;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Judul & Heading */
+    h1, h2, h3, h4, h5, h6, 
+    .section-title h2 {
+      color: #a67c1e !important;
+    }
+
+    /* Tombol Utama (Button) */
+    .btn-getstarted, 
+    .btn-get-started, 
+    .read-more,
+    .btn-primary-senna {
+      background-color: #a67c1e !important;
+      color: #ffffff !important;
+      border-color: #a67c1e !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-getstarted:hover, 
+    .btn-get-started:hover,
+    .btn-primary-senna:hover {
+      background-color: #7a5a13 !important;
+      border-color: #7a5a13 !important;
+      color: #ffffff !important;
+    }
+
+    /* Hover Menu & Navigasi */
+    .navmenu a:hover, 
+    .navmenu .active, 
+    .navmenu .active:focus {
+      color: #a67c1e !important;
+    }
+
+    .section-title h2::after {
+      background: #a67c1e !important;
+    }
+
+    /* Filter Produk / Portfolio Style */
+    .product-filters {
+      padding: 0;
+      margin: 0 auto 30px auto;
+      list-style: none;
+      text-align: center;
+    }
+
+    .product-filters li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0 4px 10px 4px;
+      line-height: 1;
+      border-radius: 4px;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid #a67c1e;
+      color: #a67c1e;
+    }
+
+    .product-filters li:hover,
+    .product-filters li.filter-active {
+      background-color: #a67c1e;
+      color: #ffffff;
+    }
+
+    /* Cards Produk */
+    .product-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(166, 124, 30, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-card .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-card .badge-category {
+      background-color: #f4ece0;
+      color: #a67c1e;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+
+    .product-card .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .product-card .card-text {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- Header Section -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Logo Image/Text -->
+        <h1 class="sitename">SENNA</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="index.html#about">Tentang Kami</a></li>
+          <li><a href="produk.html" class="active">Produk</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Kontak</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="https://wa.me/6282130720890" target="_blank">Mulai Konsultasi</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title / Banner Section -->
+    <div class="page-title" data-aos="fade">
+      <div class="container">
+        <h1>Katalog Produk</h1>
+        <p>Pengadaan Komponen Kelistrikan & Peralatan Industri Berkualitas Tinggi</p>
+      </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="products section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Daftar Produk Kami</h2>
+        <p>Solusi handal dan terpercaya untuk kebutuhan sektor industri, perhotelan, kesehatan, dan pendidikan.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <!-- Category Filters -->
+        <ul class="product-filters" data-aos="fade-up" data-aos-delay="100">
+          <li class="filter-active">Semua Produk</li>
+          <li>Kelistrikan</li>
+          <li>Trafo & Panel</li>
+          <li>Kabel & Komponen</li>
+          <li>Perlengkapan Industri</li>
+        </ul><!-- End Category Filters -->
+
+        <!-- Product Grid -->
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+          <!-- Product Item 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="MCB Industri">
+              <div class="card-body">
+                <span class="badge-category">Kelistrikan</span>
+                <h3 class="card-title">MCB Industri High-Capacity</h3>
+                <p class="card-text">Miniature Circuit Breaker standar industri dengan proteksi arus beban lebih dan korsleting yang aman.</p>
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20MCB%20Industri" class="btn-primary-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                </a>
+              </div>
+            </div>
+          </div><!-- End Product Item -->
+
+          <!-- Product Item 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Trafo Distribusi">
+              <div class="card-body">
+                <span class="badge-category">Trafo & Panel</span>
+                <h3 class="card-title">Trafo Distribusi Tenaga</h3>
+                <p class="card-text">Transformator daya efisiensi tinggi untuk kebutuhan tegangan menengah pada gedung dan pabrik.</p>
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Trafo%20Distribusi" class="btn-primary-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                </a>
+              </div>
+            </div>
+          </div><!-- End Product Item -->
+
+          <!-- Product Item 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+              <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Kabel Power Industri">
+              <div class="card-body">
+                <span class="badge-category">Kabel & Komponen</span>
+                <h3 class="card-title">Kabel Power Standar SNI</h3>
+                <p class="card-text">Kabel tembaga berisolasi ganda berkualitas tinggi tahan panas untuk penyaluran tenaga besar.</p>
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Kabel%20Power" class="btn-primary-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                </a>
+              </div>
+            </div>
+          </div><!-- End Product Item -->
+
+          <!-- Product Item 4 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Panel Listrik Control">
+              <div class="card-body">
+                <span class="badge-category">Trafo & Panel</span>
+                <h3 class="card-title">Panel Kontrol Listrik Custom</h3>
+                <p class="card-text">Perakitan panel ATS/AMF dan MDP/SDP sesuai spesifikasi teknis dan modul instalasi proyek.</p>
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Panel%20Kontrol" class="btn-primary-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                </a>
+              </div>
+            </div>
+          </div><!-- End Product Item -->
+
+          <!-- Product Item 5 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+              <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=600&q=80" alt="Komponen Otomasi">
+              <div class="card-body">
+                <span class="badge-category">Perlengkapan Industri</span>
+                <h3 class="card-title">Komponen Otomasi & Sensor</h3>
+                <p class="card-text">Kontaktor, relay, dan sensor kelistrikan presisi tinggi untuk sistem otomasi pabrik modern.</p>
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Komponen%20Otomasi" class="btn-primary-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                </a>
+              </div>
+            </div>
+          </div><!-- End Product Item -->
+
+          <!-- Product Item 6 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+              <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=600&q=80" alt="Aksesori Instalasi">
+              <div class="card-body">
+                <span class="badge-category">Kelistrikan</span>
+                <h3 class="card-title">Aksesori Instalasi & Isolator</h3>
+                <p class="card-text">Lengkap dengan cable gland, skun kabel, isolator tahan bocor, dan perlengkapan grounding.</p>
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Aksesori%20Instalasi" class="btn-primary-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                </a>
+              </div>
+            </div>
+          </div><!-- End Product Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Products Section -->
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer" class="footer light-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">SENNA</span>
+          </a>
+          <p>PT Selaras Dinamika Niaga adalah perusahaan yang berdedikasi untuk menyediakan barang berkualitas tinggi bagi berbagai sektor industri, perhotelan, kesehatan, dan pendidikan.</p>
+        </div>
+
+        <div class="col-lg-3 col-6 footer-links">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#about">Tentang Kami</a></li>
+            <li><a href="produk.html">Katalog Produk</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
+          <h4>Hubungi Kami</h4>
+          <p>Jl. Sunda No. 85 Bandung</p>
+          <p class="mt-3"><strong>Telepon:</strong> <span>+62-821-3072-0890</span></p>
+          <p><strong>Email:</strong> <span>senna.sales@outlook.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">PT Selaras Dinamika Niaga</strong> <span>All Rights Reserved</span></p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/css/../js/main.js"></script>
+
+</body>
+
+</html>
