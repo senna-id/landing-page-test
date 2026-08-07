@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Katalog Produk - PT Selaras Dinamika Niaga (SENNA)</title>
-  <meta name="description" content="Katalog produk kelistrikan dan pengadaan barang berkualitas tinggi dari PT Selaras Dinamika Niaga (SENNA).">
-  <meta name="keywords" content="SENNA, MCB, Trafo, Kabel, Kelistrikan, Pengadaan Barang">
+  <title>Katalog Produk Lampu LED OPPLE &amp; Kelistrikan - PT Selaras Dinamika Niaga</title>
+  <meta name="description" content="Katalog produk resmi distributor OPPLE Lighting Indonesia, MCB Mitsubishi, Chint, Schneider, Kabel Supreme, Hanyoung Nux, dan komponen kelistrikan PT Selaras Dinamika Niaga (SENNA).">
+  <meta name="keywords" content="distributor opple, lampu led, led opple, TL LED OPPLE, Panel LED OPPLE, Highbay LED OPPLE, Downlight OPPLE, MCB Mitsubishi, MCB Chint, MCB Schneider, Kabel Supreme, Hanyoung Nux, Fort, PT Selaras Dinamika Niaga">
 
   <!-- Favicons -->
   <link href="assets/img/logo/favicon.webp" rel="icon">
@@ -82,6 +82,22 @@
       color: #ffffff !important;
     }
 
+    .btn-outline-senna {
+      background-color: transparent !important;
+      color: #a67c1e !important;
+      border: 1px solid #a67c1e !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-outline-senna:hover {
+      background-color: #a67c1e !important;
+      color: #ffffff !important;
+    }
+
     /* Hover Menu & Navigasi */
     .navmenu a:hover, 
     .navmenu .active, 
@@ -121,7 +137,7 @@
       color: #ffffff;
     }
 
-    /* Cards Produk */
+    /* Cards Produk Induk */
     .product-card {
       background: #ffffff;
       border-radius: 8px;
@@ -141,7 +157,9 @@
     .product-card img {
       width: 100%;
       height: 220px;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #f9f9f9;
+      padding: 15px;
     }
 
     .product-card .card-body {
@@ -163,16 +181,51 @@
     }
 
     .product-card .card-title {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .product-card .card-text {
       color: #6c757d;
       font-size: 0.9rem;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       flex-grow: 1;
+    }
+
+    /* Highlight Features List */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      font-size: 0.85rem;
+      color: #444444;
+      background: #fdfbf7;
+      border-left: 3px solid #a67c1e;
+      padding: 8px 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 4px;
+    }
+
+    .feature-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list i {
+      color: #a67c1e;
+      margin-right: 6px;
+    }
+
+    /* Utilities untuk penyaringan JS */
+    .product-item {
+      transition: all 0.4s ease;
+    }
+
+    .product-item.is-hidden {
+      display: none !important;
     }
   </style>
 </head>
@@ -198,7 +251,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https://wa.me/6282130720890" target="_blank">Mulai Konsultasi</a>
+      <a class="btn-getstarted" href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20ingin%20konsultasi%20mengenai%20produk%20OPPLE%20dan%20komponen%20listrik" target="_blank">Mulai Konsultasi</a>
 
     </div>
   </header>
@@ -208,8 +261,8 @@
     <!-- Page Title / Banner Section -->
     <div class="page-title" data-aos="fade">
       <div class="container">
-        <h1>Katalog Produk</h1>
-        <p>Pengadaan Komponen Kelistrikan & Peralatan Industri Berkualitas Tinggi</p>
+        <h1>Katalog Utama Produk</h1>
+        <p>Authorized Distributor OPPLE Lighting &amp; Pengadaan Komponen Kelistrikan Industri</p>
       </div>
     </div>
 
@@ -218,154 +271,266 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Daftar Produk Kami</h2>
-        <p>Solusi handal dan terpercaya untuk kebutuhan sektor industri, perhotelan, kesehatan, dan pendidikan.</p>
-      </div><!-- End Section Title -->
+        <h2>Kategori &amp; Lini Produk Utama</h2>
+        <p>Pilih kategori produk di bawah ini untuk melihat detail varian spesifikasi lengkap dan matriks teknis.</p>
+      </div>
 
       <div class="container">
 
         <!-- Category Filters -->
-        <ul class="product-filters" data-aos="fade-up" data-aos-delay="100">
-          <li class="filter-active">Semua Produk</li>
-          <li>Kelistrikan</li>
-          <li>Trafo & Panel</li>
-          <li>Kabel & Komponen</li>
-          <li>Perlengkapan Industri</li>
-        </ul><!-- End Category Filters -->
+        <ul class="product-filters" id="product-filters" data-aos="fade-up" data-aos-delay="100">
+          <li class="filter-active" data-filter="all">Semua Produk</li>
+          <li data-filter="filter-opple">Lampu LED OPPLE</li>
+          <li data-filter="filter-breaker">Circuit Breaker &amp; Kontaktor</li>
+          <li data-filter="filter-kabel">Kabel &amp; Aksesori</li>
+          <li data-filter="filter-komponen">Komponen Panel</li>
+          <li data-filter="filter-saklar">Saklar &amp; Stopkontak</li>
+        </ul>
 
-        <!-- Product Grid -->
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+        <!-- Product Grid (Card Induk Kategori) -->
+        <div class="row gy-4 product-container" id="product-grid" data-aos="fade-up" data-aos-delay="200">
 
-          <!-- Product Item 1 -->
-          <div class="col-lg-4 col-md-6">
+          <!-- 1. INDUK: Downlight LED OPPLE -->
+          <div class="col-lg-4 col-md-6 product-item filter-opple">
             <div class="product-card">
-              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="MCB Industri">
+              <img src="assets/img/produk/downlight_opple.webp" alt="Downlight LED OPPLE">
               <div class="card-body">
-                <span class="badge-category">Kelistrikan</span>
-                <h3 class="card-title">MCB Industri High-Capacity</h3>
-                <p class="card-text">Miniature Circuit Breaker standar industri dengan proteksi arus beban lebih dan korsleting yang aman.</p>
-                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20MCB%20Industri" class="btn-primary-senna w-100 text-center" target="_blank">
-                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                <span class="badge-category">OPPLE LED - Downlight</span>
+                <h3 class="card-title">Downlight LED OPPLE</h3>
+                <p class="card-text">Lampu tanam &amp; permukaan plafon dengan beragam varian ukuran (3" - 8"), desain minimalis, dan teknologi anti-silau untuk gedung, hotel, &amp; hunian.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Varian:</strong> Utility, Performa, COB Spot</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Daya:</strong> 3W hingga 30W</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Fitur:</strong> High CRI &gt; 80, Slim Profile</li>
+                </ul>
+
+                <a href="detail-downlight.html" class="btn-primary-senna w-100 text-center mb-2">
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Lihat Detail &amp; Spesifikasi
                 </a>
               </div>
             </div>
-          </div><!-- End Product Item -->
+          </div>
 
-          <!-- Product Item 2 -->
-          <div class="col-lg-4 col-md-6">
+          <!-- 2. INDUK: Panel LED OPPLE -->
+          <div class="col-lg-4 col-md-6 product-item filter-opple">
             <div class="product-card">
-              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Trafo Distribusi">
+              <img src="assets/img/produk/led_panel_opple.webp" alt="Panel LED OPPLE">
               <div class="card-body">
-                <span class="badge-category">Trafo & Panel</span>
-                <h3 class="card-title">Trafo Distribusi Tenaga</h3>
-                <p class="card-text">Transformator daya efisiensi tinggi untuk kebutuhan tegangan menengah pada gedung dan pabrik.</p>
-                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Trafo%20Distribusi" class="btn-primary-senna w-100 text-center" target="_blank">
-                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                <span class="badge-category">OPPLE LED - Panel</span>
+                <h3 class="card-title">Panel LED OPPLE</h3>
+                <p class="card-text">Panel pencahayaan merata ultra-slim ukuran 60x60 cm &amp; 30x120 cm untuk kenyamanan visual di ruang kantor, rumah sakit, dan sekolah.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Varian:</strong> Ekonomis, General, Performa</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Daya:</strong> 32W, 36W, 40W</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Fitur:</strong> Low Glare UGR&lt;19, Anti Flicker</li>
+                </ul>
+
+                <a href="detail-panel.html" class="btn-primary-senna w-100 text-center mb-2">
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Lihat Detail &amp; Spesifikasi
                 </a>
               </div>
             </div>
-          </div><!-- End Product Item -->
+          </div>
 
-          <!-- Product Item 3 -->
-          <div class="col-lg-4 col-md-6">
+          <!-- 3. INDUK: Highbay LED OPPLE -->
+          <div class="col-lg-4 col-md-6 product-item filter-opple">
             <div class="product-card">
-              <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Kabel Power Industri">
+              <img src="assets/img/produk/highbay.webp" alt="Highbay LED OPPLE">
               <div class="card-body">
-                <span class="badge-category">Kabel & Komponen</span>
-                <h3 class="card-title">Kabel Power Standar SNI</h3>
-                <p class="card-text">Kabel tembaga berisolasi ganda berkualitas tinggi tahan panas untuk penyaluran tenaga besar.</p>
-                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Kabel%20Power" class="btn-primary-senna w-100 text-center" target="_blank">
-                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                <span class="badge-category">OPPLE LED - Highbay</span>
+                <h3 class="card-title">Highbay LED OPPLE</h3>
+                <p class="card-text">Pencahayaan atap tinggi performa ekstrem untuk gudang logistik, pabrik manufaktur, hall olahraga, dan pusat pameran.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Varian:</strong> Ekonomis, General, Performa</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Daya:</strong> 80W hingga 240W</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Fitur:</strong> IP65/IP66, IK08, High Efficacy</li>
+                </ul>
+
+                <a href="detail-highbay.html" class="btn-primary-senna w-100 text-center mb-2">
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Lihat Detail &amp; Spesifikasi
                 </a>
               </div>
             </div>
-          </div><!-- End Product Item -->
+          </div>
 
-          <!-- Product Item 4 -->
-          <div class="col-lg-4 col-md-6">
+          <!-- 4. INDUK: TL LED OPPLE -->
+          <div class="col-lg-4 col-md-6 product-item filter-opple">
             <div class="product-card">
-              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Panel Listrik Control">
+              <img src="assets/img/produk/t8_utility.webp" alt="TL LED OPPLE">
               <div class="card-body">
-                <span class="badge-category">Trafo & Panel</span>
-                <h3 class="card-title">Panel Kontrol Listrik Custom</h3>
-                <p class="card-text">Perakitan panel ATS/AMF dan MDP/SDP sesuai spesifikasi teknis dan modul instalasi proyek.</p>
-                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Panel%20Kontrol" class="btn-primary-senna w-100 text-center" target="_blank">
-                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                <span class="badge-category">OPPLE LED - Tube Light</span>
+                <h3 class="card-title">TL LED OPPLE (T8 / T5)</h3>
+                <p class="card-text">Lampu tabung pengganti TL konvensional hemat energi hingga 60% dengan daya tahan tinggi dan instalasi mudah.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Varian:</strong> Ekonomis, General, Performa</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Panjang:</strong> 60 cm &amp; 120 cm</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Lifetime:</strong> Hingga 50.000 Jam</li>
+                </ul>
+
+                <a href="detail-tl.html" class="btn-primary-senna w-100 text-center mb-2">
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Lihat Detail &amp; Spesifikasi
                 </a>
               </div>
             </div>
-          </div><!-- End Product Item -->
+          </div>
 
-          <!-- Product Item 5 -->
-          <div class="col-lg-4 col-md-6">
+          <!-- 5. INDUK: PJU / Street Light LED OPPLE -->
+          <div class="col-lg-4 col-md-6 product-item filter-opple">
             <div class="product-card">
-              <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=600&q=80" alt="Komponen Otomasi">
+              <img src="assets/img/produk/street_light.webp" alt="PJU LED OPPLE">
               <div class="card-body">
-                <span class="badge-category">Perlengkapan Industri</span>
-                <h3 class="card-title">Komponen Otomasi & Sensor</h3>
-                <p class="card-text">Kontaktor, relay, dan sensor kelistrikan presisi tinggi untuk sistem otomasi pabrik modern.</p>
-                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Komponen%20Otomasi" class="btn-primary-senna w-100 text-center" target="_blank">
-                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                <span class="badge-category">OPPLE LED - Street Light</span>
+                <h3 class="card-title">PJU LED OPPLE</h3>
+                <p class="card-text">Lampu jalan raya, kawasan industri, dan perumahan berketahanan cuaca ekstrem dengan efisiensi pencahayaan optimal.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Daya:</strong> 30W hingga 150W</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Proteksi:</strong> IP66 &amp; Surge Protection</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Fitur:</strong> Distribusi Optik Canggih</li>
+                </ul>
+
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20ingin%20minta%20katalog%20dan%20spesifikasi%20PJU%20LED%20OPPLE" class="btn-outline-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Minta Datasheet / WA
                 </a>
               </div>
             </div>
-          </div><!-- End Product Item -->
+          </div>
 
-          <!-- Product Item 6 -->
-          <div class="col-lg-4 col-md-6">
+          <!-- 6. INDUK: Floodlight & Spotlight OPPLE -->
+          <div class="col-lg-4 col-md-6 product-item filter-opple">
             <div class="product-card">
-              <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=600&q=80" alt="Aksesori Instalasi">
+              <img src="assets/img/produk/floodspot_opple.webp" alt="Spotlight & Floodlight LED OPPLE">
               <div class="card-body">
-                <span class="badge-category">Kelistrikan</span>
-                <h3 class="card-title">Aksesori Instalasi & Isolator</h3>
-                <p class="card-text">Lengkap dengan cable gland, skun kabel, isolator tahan bocor, dan perlengkapan grounding.</p>
-                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Aksesori%20Instalasi" class="btn-primary-senna w-100 text-center" target="_blank">
-                  <i class="bi bi-whatsapp me-2"></i>Tanya Spesifikasi
+                <span class="badge-category">OPPLE LED - Outdoor &amp; Spot</span>
+                <h3 class="card-title">Floodlight &amp; Spotlight OPPLE</h3>
+                <p class="card-text">Lampu sorot luar ruang berdaya tinggi serta sorot arsitektural untuk fasad gedung, lapangan, dan pencahayaan aksen.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Tipe:</strong> EcoMax Floodlight, Track Light</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Daya:</strong> 10W hingga 200W</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Fitur:</strong> Bodi Alumunium Robust</li>
+                </ul>
+
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20ingin%20minta%20katalog%20Floodlight%20Spotlight%20OPPLE" class="btn-outline-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Minta Datasheet / WA
                 </a>
               </div>
             </div>
-          </div><!-- End Product Item -->
+          </div>
+
+          <!-- 7. INDUK: Circuit Breaker & Kontaktor -->
+          <div class="col-lg-4 col-md-6 product-item filter-breaker">
+            <div class="product-card">
+              <img src="assets/img/produk/MITSUBISHI.webp" alt="Circuit Breaker Mitsubishi Schneider Chint">
+              <div class="card-body">
+                <span class="badge-category">Circuit Breaker &amp; Kontaktor</span>
+                <h3 class="card-title">MCB, MCCB &amp; Kontaktor</h3>
+                <p class="card-text">Komponen proteksi arus dan saklar daya utama standar industri terkemuka: Mitsubishi Electric, Schneider Electric, dan Chint.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Brand:</strong> Mitsubishi, Schneider, Chint</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Kapasitas:</strong> 1P, 2P, 3P (Ampere Lengkap)</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Jaminan:</strong> 100% Produk Original</li>
+                </ul>
+
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20butuh%20penawaran%20harga%20MCB%20MCCB%20Kontaktor" class="btn-outline-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Minta Pricelist / WA
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. INDUK: Kabel Listrik Industri -->
+          <div class="col-lg-4 col-md-6 product-item filter-kabel">
+            <div class="product-card">
+              <img src="assets/img/produk/SUPREME.webp" alt="Kabel Supreme & Accessories">
+              <div class="card-body">
+                <span class="badge-category">Kabel &amp; Aksesori</span>
+                <h3 class="card-title">Kabel Supreme &amp; Cable Lugs</h3>
+                <p class="card-text">Kabel daya NYA, NYM, NYY, NYFGBY berstandar SNI / LMK dari Supreme Kabel serta skun &amp; aksesoris Fort.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Brand:</strong> Supreme, Fort</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Jenis:</strong> Tegangan Rendah &amp; Menengah</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Sertifikasi:</strong> SNI &amp; LMK Resmi</li>
+                </ul>
+
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20butuh%20penawaran%20harga%20Kabel%20Supreme" class="btn-outline-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Minta Pricelist / WA
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. INDUK: Komponen Panel & Switch -->
+          <div class="col-lg-4 col-md-6 product-item filter-komponen filter-saklar">
+            <div class="product-card">
+              <img src="assets/img/produk/hanyoung-nux.webp" alt="Komponen Panel Hanyoung Nux & Saklar">
+              <div class="card-body">
+                <span class="badge-category">Panel &amp; Wiring Accessories</span>
+                <h3 class="card-title">Komponen Panel &amp; Saklar</h3>
+                <p class="card-text">Temperature Controller, Timer, Relay Hanyoung Nux, kWh Meter Fort, serta Saklar/Stopkontak Schneider &amp; Panasonic.</p>
+                
+                <ul class="feature-list">
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Brand:</strong> Hanyoung Nux, Panasonic, Schneider</li>
+                  <li><i class="bi bi-check-circle-fill"></i><strong>Aplikasi:</strong> Otomasi Panel Industri &amp; Building</li>
+                </ul>
+
+                <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20butuh%20info%20Komponen%20Panel%20dan%20Saklar" class="btn-outline-senna w-100 text-center" target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Minta Pricelist / WA
+                </a>
+              </div>
+            </div>
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- End Products Section -->
+    </section>
 
   </main>
 
   <!-- Footer Section -->
-  <footer id="footer" class="footer light-background">
-    <div class="container footer-top">
+  <footer id="footer" class="footer light-background p-0">
+    <div class="container footer-top py-5">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">SENNA</span>
+          <a href="index.html" class="logo d-flex align-items-center mb-3 text-decoration-none">
+            <span class="sitename fw-bold" style="color: #a67c1e; font-size: 2rem;">SENNA</span>
           </a>
-          <p>PT Selaras Dinamika Niaga adalah perusahaan yang berdedikasi untuk menyediakan barang berkualitas tinggi bagi berbagai sektor industri, perhotelan, kesehatan, dan pendidikan.</p>
+          <p style="color: #555555; max-width: 420px; line-height: 1.6;">
+            PT Selaras Dinamika Niaga adalah perusahaan yang berdedikasi untuk menyediakan barang berkualitas tinggi bagi berbagai sektor industri, perhotelan, kesehatan, dan pendidikan.
+          </p>
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
-          <h4>Navigasi</h4>
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="index.html#about">Tentang Kami</a></li>
-            <li><a href="produk.html">Katalog Produk</a></li>
-            <li><a href="index.html#portfolio">Portfolio</a></li>
+          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Navigasi</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-decoration-none" style="color: #555555;">Beranda</a></li>
+            <li class="mb-2"><a href="index.html#about" class="text-decoration-none" style="color: #555555;">Tentang Kami</a></li>
+            <li class="mb-2"><a href="produk.html" class="text-decoration-none" style="color: #555555;">Katalog Produk</a></li>
+            <li class="mb-2"><a href="index.html#portfolio" class="text-decoration-none" style="color: #555555;">Portfolio</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
-          <h4>Hubungi Kami</h4>
-          <p>Jl. Sunda No. 85 Bandung</p>
-          <p class="mt-3"><strong>Telepon:</strong> <span>+62-821-3072-0890</span></p>
-          <p><strong>Email:</strong> <span>senna@senna-id.com</span></p>
+        <div class="col-lg-4 col-6 footer-contact text-start">
+          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Hubungi Kami</h4>
+          <p class="mb-3" style="color: #555555;">Jl. Sunda No. 85 Bandung</p>
+          <p class="mb-1" style="color: #333333;"><strong>Telepon:</strong> <span style="color: #555555;">+62-821-3072-0890</span></p>
+          <p class="mb-0" style="color: #333333;"><strong>Email:</strong> <span style="color: #555555;">info@senna-id.com</span></p>
         </div>
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">PT Selaras Dinamika Niaga</strong> <span>All Rights Reserved</span></p>
+    <div class="copyright text-center py-3" style="background-color: #a67c1e; color: #ffffff; margin-top: 0;">
+      <div class="container">
+        <p class="mb-0" style="color: #ffffff;">© Copyright 2026 <strong>PT Selaras Dinamika Niaga</strong> All Rights Reserved</p>
+      </div>
     </div>
   </footer>
 
@@ -379,7 +544,58 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/css/../js/main.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- JavaScript Filter & URL Hash Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterBtns = document.querySelectorAll('#product-filters li');
+      const productItems = document.querySelectorAll('.product-item');
+
+      // Fungsi menyaring item berdasarkan kelas filter
+      function applyFilter(filterValue) {
+        // Update tombol filter aktif
+        filterBtns.forEach(btn => {
+          if (btn.getAttribute('data-filter') === filterValue) {
+            btn.classList.add('filter-active');
+          } else {
+            btn.classList.remove('filter-active');
+          }
+        });
+
+        // Sembunyikan/Tampilkan item produk
+        productItems.forEach(item => {
+          if (filterValue === 'all' || filterValue === '*' || item.classList.contains(filterValue)) {
+            item.classList.remove('is-hidden');
+          } else {
+            item.classList.add('is-hidden');
+          }
+        });
+      }
+
+      // Event listener saat tombol filter di klik manual oleh user
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const selectedFilter = this.getAttribute('data-filter');
+          applyFilter(selectedFilter);
+        });
+      });
+
+      // Pendeteksi Hash URL (Misal: produk.html#filter-opple atau produk.html#filter-breaker)
+      function checkUrlHash() {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+          applyFilter(hash);
+        }
+      }
+
+      // Jalankan pengecekan hash saat halaman pertama kali dimuat
+      checkUrlHash();
+
+      // Jalankan pengecekan hash jika hash URL berubah tanpa reload
+      window.addEventListener('hashchange', checkUrlHash);
+    });
+  </script>
 
 </body>
 
