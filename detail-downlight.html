@@ -89,10 +89,13 @@
     /* Product Gallery */
     .main-prod-img {
       width: 100%;
+      height: 380px;
+      object-fit: contain;
       border-radius: 8px;
       background: #f9f9f9;
       padding: 20px;
       border: 1px solid #eee;
+      transition: opacity 0.3s ease-in-out;
     }
 
     /* Tabs Styling */
@@ -124,20 +127,21 @@
 
     .table-spec td {
       vertical-align: middle;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .badge-cct {
       font-size: 0.75rem;
       padding: 3px 8px;
       border-radius: 4px;
-      margin-right: 2px;
       display: inline-block;
+      font-weight: 600;
     }
 
     .cct-3000k { background-color: #ffe8cc; color: #d97706; }
     .cct-4000k { background-color: #fef3c7; color: #b45309; }
-    .cct-6500k { background-color: #e0f2fe; color: #0369a1; }
+    .cct-5700k { background-color: #e0f2fe; color: #0369a1; }
+    .cct-6500k { background-color: #e0f2fe; color: #0284c7; }
   </style>
 </head>
 
@@ -188,10 +192,10 @@
     <section id="product-detail" class="section py-5">
       <div class="container">
         
-        <div class="row gy-4 mb-5">
-          <!-- Gallery / Product Image -->
+        <div class="row gy-4 mb-5 align-items-center">
+          <!-- Gallery / Product Image Dynamic -->
           <div class="col-lg-5">
-            <img src="assets/img/produk/downlight_opple.webp" alt="Downlight LED OPPLE" class="main-prod-img img-fluid">
+            <img id="mainProductImg" src="assets/img/produk/downlight-p2-opple.webp" alt="Downlight LED OPPLE" class="main-prod-img img-fluid">
           </div>
 
           <!-- Product General Overview -->
@@ -214,8 +218,8 @@
               </div>
               <div class="col-md-6">
                 <ul class="list-unstyled">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Desain Ultra Slim:</strong> Memudahkan pemasangan pada plafon sempit.</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Driver Terintegrasi / Eksternal:</strong> Pilihan pemasangan fleksibel.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Desain Compact &amp; Ultra Slim:</strong> Memudahkan instalasi di berbagai plafon.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Performa Andal:</strong> Hemat energi dengan umur pakai panjang.</li>
                 </ul>
               </div>
             </div>
@@ -240,18 +244,13 @@
             <!-- Navigation Tabs -->
             <ul class="nav nav-tabs" id="downlightTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="utility-tab" data-bs-toggle="tab" data-bs-target="#utility" type="button" role="tab">
-                  Seri Utility / Ekonomis (EcoMax)
+                <button class="nav-link active" id="p2-tab" data-bs-toggle="tab" data-bs-target="#p2" type="button" role="tab" data-img="assets/img/produk/downlight-p2-opple.webp">
+                  Seri P2 (Performer II)
                 </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab">
-                  Seri General / Standar (Performer)
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="spot-tab" data-bs-toggle="tab" data-bs-target="#spot" type="button" role="tab">
-                  Seri COB / Adjustable Spot
+                <button class="nav-link" id="ecomax-tab" data-bs-toggle="tab" data-bs-target="#ecomax" type="button" role="tab" data-img="assets/img/produk/downlight-e3-opple.webp">
+                  EcoMax E3 Slim
                 </button>
               </li>
             </ul>
@@ -259,170 +258,434 @@
             <!-- Tab Content -->
             <div class="tab-content border border-top-0 p-4 bg-white rounded-bottom" id="downlightTabContent">
               
-              <!-- 1. TAB UTILITY / EKONOMIS -->
-              <div class="tab-pane fade show active" id="utility" role="tabpanel">
-                <p class="text-muted">Ideal untuk perumahan, toko retail kecil, dan koridor umum yang membutuhkan efisiensi biaya tinggi.</p>
+              <!-- 1. TAB SERI P2 (PERFORMER II) -->
+              <div class="tab-pane fade show active" id="p2" role="tabpanel">
+                <p class="text-muted">Downlight performa tinggi dengan output lumen ekstra besar hingga 6050 lm untuk plafon tinggi, hall, dan area proyek komersial skala besar.</p>
                 <div class="table-responsive">
                   <table class="table table-striped table-hover table-bordered table-spec">
                     <thead>
                       <tr>
+                        <th class="text-center" style="width: 50px;">No</th>
                         <th>Kode Model</th>
-                        <th>Daya (W)</th>
-                        <th>Cut-out Size</th>
-                        <th>Dimensi (DxH)</th>
-                        <th>Lumen (lm)</th>
-                        <th>Warna Cahaya (CCT)</th>
-                        <th>Beam Angle</th>
+                        <th class="text-center">Daya</th>
+                        <th class="text-center">Cut-out Size</th>
+                        <th class="text-center">Warna Cahaya (CCT)</th>
+                        <th class="text-center">Fluks Cahaya (Lumen)</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><strong>LED DN-E II 3.5W</strong></td>
-                        <td>3.5W</td>
-                        <td>Ø75 mm (3")</td>
-                        <td>Ø90 x 38 mm</td>
-                        <td>300 lm</td>
-                        <td>
-                          <span class="badge-cct cct-3000k">3000K</span>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                          <span class="badge-cct cct-6500k">6500K</span>
-                        </td>
-                        <td>100°</td>
+                        <td class="text-center">1</td>
+                        <td><strong>LEDDownlightRc-PII R125-35W-3000 GP</strong></td>
+                        <td class="text-center">35W</td>
+                        <td class="text-center">Ø125 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">3.325 lm</td>
                       </tr>
                       <tr>
-                        <td><strong>LED DN-E II 6W</strong></td>
-                        <td>6W</td>
-                        <td>Ø100 mm (4")</td>
-                        <td>Ø120 x 38 mm</td>
-                        <td>510 lm</td>
-                        <td>
-                          <span class="badge-cct cct-3000k">3000K</span>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                          <span class="badge-cct cct-6500k">6500K</span>
-                        </td>
-                        <td>100°</td>
+                        <td class="text-center">2</td>
+                        <td><strong>LEDDownlightRc-PII R125-35W-4000 GP</strong></td>
+                        <td class="text-center">35W</td>
+                        <td class="text-center">Ø125 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">3.500 lm</td>
                       </tr>
                       <tr>
-                        <td><strong>LED DN-E II 9W</strong></td>
-                        <td>9W</td>
-                        <td>Ø125 mm (5")</td>
-                        <td>Ø145 x 38 mm</td>
-                        <td>800 lm</td>
-                        <td>
-                          <span class="badge-cct cct-3000k">3000K</span>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                          <span class="badge-cct cct-6500k">6500K</span>
-                        </td>
-                        <td>100°</td>
+                        <td class="text-center">3</td>
+                        <td><strong>LEDDownlightRc-PII R125-35W-5700 GP</strong></td>
+                        <td class="text-center">35W</td>
+                        <td class="text-center">Ø125 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">3.500 lm</td>
                       </tr>
                       <tr>
-                        <td><strong>LED DN-E II 12W</strong></td>
-                        <td>12W</td>
-                        <td>Ø150 mm (6")</td>
-                        <td>Ø170 x 38 mm</td>
-                        <td>1080 lm</td>
-                        <td>
-                          <span class="badge-cct cct-3000k">3000K</span>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                          <span class="badge-cct cct-6500k">6500K</span>
-                        </td>
-                        <td>100°</td>
+                        <td class="text-center">4</td>
+                        <td><strong>LEDDownlightRc-PII R150-35W-3000 GP</strong></td>
+                        <td class="text-center">35W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">3.500 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">5</td>
+                        <td><strong>LEDDownlightRc-PII R150-35W-4000 GP</strong></td>
+                        <td class="text-center">35W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">3.675 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">6</td>
+                        <td><strong>LEDDownlightRc-PII R150-35W-5700 GP</strong></td>
+                        <td class="text-center">35W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">3.675 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">7</td>
+                        <td><strong>LEDDownlightRc-PII R150-40W-3000 GP</strong></td>
+                        <td class="text-center">40W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">3.800 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">8</td>
+                        <td><strong>LEDDownlightRc-PII R150-40W-4000 GP</strong></td>
+                        <td class="text-center">40W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">4.000 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">9</td>
+                        <td><strong>LEDDownlightRc-PII R150-40W-5700 GP</strong></td>
+                        <td class="text-center">40W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">4.000 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">10</td>
+                        <td><strong>LEDDownlightRc-PII R150-45W-3000 GP</strong></td>
+                        <td class="text-center">45W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">4.275 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">11</td>
+                        <td><strong>LEDDownlightRc-PII R150-45W-4000 GP</strong></td>
+                        <td class="text-center">45W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">4.500 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">12</td>
+                        <td><strong>LEDDownlightRc-PII R150-45W-5700 GP</strong></td>
+                        <td class="text-center">45W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">4.500 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">13</td>
+                        <td><strong>LEDDownlightRc-PII R200-45W-3000 GP</strong></td>
+                        <td class="text-center">45W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">4.725 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">14</td>
+                        <td><strong>LEDDownlightRc-PII R200-45W-4000 GP</strong></td>
+                        <td class="text-center">45W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">4.950 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">15</td>
+                        <td><strong>LEDDownlightRc-PII R200-45W-5700 GP</strong></td>
+                        <td class="text-center">45W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">4.950 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">16</td>
+                        <td><strong>LEDDownlightRc-PII R200-50W-3000 GP</strong></td>
+                        <td class="text-center">50W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">5.750 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">17</td>
+                        <td><strong>LEDDownlightRc-PII R200-50W-4000 GP</strong></td>
+                        <td class="text-center">50W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">6.000 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">18</td>
+                        <td><strong>LEDDownlightRc-PII R200-50W-5700 GP</strong></td>
+                        <td class="text-center">50W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">6.000 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">19</td>
+                        <td><strong>LEDDownlightRc-PII R200-55W-3000 GP</strong></td>
+                        <td class="text-center">55W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">5.500 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">20</td>
+                        <td><strong>LEDDownlightRc-PII R200-55W-4000 GP</strong></td>
+                        <td class="text-center">55W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">6.050 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">21</td>
+                        <td><strong>LEDDownlightRc-PII R200-55W-5700 GP</strong></td>
+                        <td class="text-center">55W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-5700k">5700K</span></td>
+                        <td class="text-center">6.050 lm</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
 
-              <!-- 2. TAB GENERAL / STANDAR -->
-              <div class="tab-pane fade" id="general" role="tabpanel">
-                <p class="text-muted">Dirancang untuk gedung kantor, rumah sakit, dan area komersial dengan masa pakai lebih panjang &amp; ketahanan ekstra.</p>
-                <div class="table-responsive">
-                  <table class="table table-striped table-hover table-bordered table-spec">
-                    <thead>
-                      <tr>
-                        <th>Kode Model</th>
-                        <th>Daya (W)</th>
-                        <th>Cut-out Size</th>
-                        <th>Dimensi (DxH)</th>
-                        <th>Lumen (lm)</th>
-                        <th>Warna Cahaya (CCT)</th>
-                        <th>IP Rating</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><strong>LED DN-P III 10W</strong></td>
-                        <td>10W</td>
-                        <td>Ø150 mm (6")</td>
-                        <td>Ø168 x 64 mm</td>
-                        <td>1050 lm</td>
-                        <td>
-                          <span class="badge-cct cct-3000k">3000K</span>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                        </td>
-                        <td>IP44</td>
-                      </tr>
-                      <tr>
-                        <td><strong>LED DN-P III 18W</strong></td>
-                        <td>18W</td>
-                        <td>Ø200 mm (8")</td>
-                        <td>Ø218 x 68 mm</td>
-                        <td>1980 lm</td>
-                        <td>
-                          <span class="badge-cct cct-3000k">3000K</span>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                          <span class="badge-cct cct-6500k">6500K</span>
-                        </td>
-                        <td>IP44</td>
-                      </tr>
-                      <tr>
-                        <td><strong>LED DN-P III 24W</strong></td>
-                        <td>24W</td>
-                        <td>Ø200 mm (8")</td>
-                        <td>Ø218 x 68 mm</td>
-                        <td>2640 lm</td>
-                        <td>
-                          <span class="badge-cct cct-4000k">4000K</span>
-                          <span class="badge-cct cct-6500k">6500K</span>
-                        </td>
-                        <td>IP44</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <!-- 2. TAB ECOMAX E3 SLIM -->
+              <div class="tab-pane fade" id="ecomax" role="tabpanel">
+                <p class="text-muted mb-2">
+                  Downlight tipe ultra-slim dengan efisiensi tinggi, sangat cocok untuk area dengan kedalaman plafon terbatas.
+                </p>
+                <div class="d-flex flex-wrap gap-4 mb-3 text-muted small">
+                  <span><i class="bi bi-clock-history text-warning me-1"></i><strong>Lifetime:</strong> 30.000 Jam</span>
+                  <span><i class="bi bi-x-circle text-danger me-1"></i><strong>Dimmable:</strong> Tidak (Non-Dimmable)</span>
                 </div>
-              </div>
 
-              <!-- 3. TAB COB / SPOT -->
-              <div class="tab-pane fade" id="spot" role="tabpanel">
-                <p class="text-muted">Lampu sorot aksen (Spotlight) untuk museum, galeri, ballroom, dan display toko retail.</p>
                 <div class="table-responsive">
                   <table class="table table-striped table-hover table-bordered table-spec">
                     <thead>
                       <tr>
+                        <th class="text-center" style="width: 50px;">No</th>
                         <th>Kode Model</th>
-                        <th>Daya (W)</th>
-                        <th>Cut-out Size</th>
-                        <th>Sudut Kemiringan</th>
-                        <th>Lumen (lm)</th>
-                        <th>Beam Angle</th>
+                        <th class="text-center">Bentuk</th>
+                        <th class="text-center">Daya</th>
+                        <th class="text-center">Cut-out Size</th>
+                        <th class="text-center">Warna Cahaya (CCT)</th>
+                        <th class="text-center">Fluks Cahaya (Lumen)</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><strong>LED Spot-COB 7W</strong></td>
-                        <td>7W</td>
-                        <td>Ø75 mm</td>
-                        <td>0° - 30° Adjustable</td>
-                        <td>560 lm</td>
-                        <td>24° / 36°</td>
+                        <td class="text-center">1</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R100-6W-3000-WH</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">6W</td>
+                        <td class="text-center">Ø100 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">480 lm</td>
                       </tr>
                       <tr>
-                        <td><strong>LED Spot-COB 14W</strong></td>
-                        <td>14W</td>
-                        <td>Ø90 mm</td>
-                        <td>0° - 30° Adjustable</td>
-                        <td>1190 lm</td>
-                        <td>24° / 36°</td>
+                        <td class="text-center">2</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R100-6W-4000-WH</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">6W</td>
+                        <td class="text-center">Ø100 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">480 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">3</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R100-6W-6500-WH</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">6W</td>
+                        <td class="text-center">Ø100 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">480 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">4</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R150-12W-3000-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">12W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">960 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">5</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R150-12W-4000-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">12W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">960 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">6</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R150-12W-6500-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">12W</td>
+                        <td class="text-center">Ø150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">960 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">7</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R200-18W-3000-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">18W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">1.440 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">8</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R200-18W-4000-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">18W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">1.440 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">9</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R200-18W-6500-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">18W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">1.440 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">10</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R200-24W-3000-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">24W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">1.920 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">11</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R200-24W-4000-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">24W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">1.920 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">12</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII R200-24W-6500-W</strong></td>
+                        <td class="text-center">Bulat (Round)</td>
+                        <td class="text-center">24W</td>
+                        <td class="text-center">Ø200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">1.920 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">13</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S100-6W-3000-WH</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">6W</td>
+                        <td class="text-center">100 x 100 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">480 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">14</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S100-6W-4000-WH</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">6W</td>
+                        <td class="text-center">100 x 100 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">480 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">15</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S100-6W-6500-WH</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">6W</td>
+                        <td class="text-center">100 x 100 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">480 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">16</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S150-12W-3000-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">12W</td>
+                        <td class="text-center">150 x 150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">960 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">17</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S150-12W-4000-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">12W</td>
+                        <td class="text-center">150 x 150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">960 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">18</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S150-12W-6500-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">12W</td>
+                        <td class="text-center">150 x 150 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">960 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">19</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S200-18W-3000-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">18W</td>
+                        <td class="text-center">200 x 200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">1.440 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">20</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S200-18W-4000-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">18W</td>
+                        <td class="text-center">200 x 200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">1.440 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">21</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S200-18W-6500-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">18W</td>
+                        <td class="text-center">200 x 200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">1.440 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">22</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S200-24W-3000-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">24W</td>
+                        <td class="text-center">200 x 200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-3000k">3000K</span></td>
+                        <td class="text-center">1.920 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">23</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S200-24W-4000-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">24W</td>
+                        <td class="text-center">200 x 200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-4000k">4000K</span></td>
+                        <td class="text-center">1.920 lm</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">24</td>
+                        <td><strong>LEDDownlight Rc-HPF ESIII S200-24W-6500-W</strong></td>
+                        <td class="text-center">Kotak (Square)</td>
+                        <td class="text-center">24W</td>
+                        <td class="text-center">200 x 200 mm</td>
+                        <td class="text-center"><span class="badge-cct cct-6500k">6500K</span></td>
+                        <td class="text-center">1.920 lm</td>
                       </tr>
                     </tbody>
                   </table>
@@ -487,6 +750,27 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- JavaScript Pengganti Gambar Otomatis Saat Switch Tab -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabButtons = document.querySelectorAll('#downlightTab button[data-bs-toggle="tab"]');
+      const mainProductImg = document.getElementById('mainProductImg');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('shown.bs.tab', function (event) {
+          const newImgSrc = event.target.getAttribute('data-img');
+          if (newImgSrc && mainProductImg) {
+            mainProductImg.style.opacity = '0.3';
+            setTimeout(() => {
+              mainProductImg.src = newImgSrc;
+              mainProductImg.style.opacity = '1';
+            }, 150);
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 
