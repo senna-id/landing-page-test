@@ -3,9 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 
-Website landing page resmi **PT Selaras Dinamika Niaga (SENNA)** — *Authorized Distributor OPPLE Lighting Indonesia* dan penyedia komponen elektrikal industri (Kabel SUPREME, MITSUBISHI Electric, dll.).
+Website landing page resmi **(SENNA)** — *Authorized Distributor OPPLE Lighting Indonesia* dan penyedia komponen elektrikal industri (Kabel SUPREME, MITSUBISHI Electric, dll.).
 
-🌐 **Demo Live:** [https://senna-id.com](https://senna-id.com)
+🌐 **Demo Live:** 
 
 ---
 
@@ -14,7 +14,7 @@ Website landing page resmi **PT Selaras Dinamika Niaga (SENNA)** — *Authorized
 - **Katalog Produk OPPLE LED:** Memuat line-up lengkap mulai dari TL LED, Panel, Highbay, PJU, Downlight, Floodlight, Spotlight, LED Bulb, hingga MR16.
 - **Portofolio Elektrikal:** Galeri filterable (Isotope) untuk produk Kabel SUPREME, Breaker MITSUBISHI, dan Saklar/Stopkontak.
 - **Infrastruktur Responsif & Animasi:** Didukung Bootstrap 5, AOS (Animate On Scroll), GLightbox, dan Swiper.
-- **Integrasi Kontak:** Tombol aksi langsung ke WhatsApp (+62 821-3072-0890) dan formulir kontak interaktif.
+- **Integrasi Kontak:** Tombol aksi langsung ke WhatsApp 
 
 ---
 
