@@ -1,0 +1,368 @@
+/* ===================================================
+   SENNA CUSTOM THEME & CSS VARIABLES
+   =================================================== */
+
+:root {
+  --primary-senna: #a67c1e;
+  --primary-senna-hover: #7a5a13;
+  --accent-color: #a67c1e !important;
+  --heading-color: #a67c1e !important;
+  --nav-hover-color: #a67c1e !important;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/* Judul & Heading Utama */
+h1, h2, h3, h4, h5, h6, 
+.section-title h2, 
+.hero h1,
+.about h3 {
+  color: var(--primary-senna) !important;
+}
+
+/* Tombol Utama (Button) */
+.btn-getstarted, 
+.btn-get-started, 
+.read-more,
+.btn-primary-senna,
+.php-email-form button[type="submit"] {
+  background-color: var(--primary-senna) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-senna) !important;
+}
+
+.btn-getstarted:hover, 
+.btn-get-started:hover,
+.btn-primary-senna:hover,
+.php-email-form button[type="submit"]:hover {
+  background-color: var(--primary-senna-hover) !important;
+  border-color: var(--primary-senna-hover) !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-senna {
+  background-color: transparent !important;
+  color: var(--primary-senna) !important;
+  border: 1px solid var(--primary-senna) !important;
+  padding: 8px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn-outline-senna:hover {
+  background-color: var(--primary-senna) !important;
+  color: #ffffff !important;
+}
+
+/* Icon & Aksesori Warna SENNA */
+.hero .icon-box .icon i,
+.about ul i,
+.services .icon i,
+.contact .info-item i {
+  color: var(--primary-senna) !important;
+}
+
+.contact .info-item i {
+  background-color: var(--primary-senna) !important;
+  color: #ffffff !important;
+}
+
+/* Navigasi & Links */
+.navmenu a:hover, 
+.navmenu .active, 
+.navmenu .active:focus {
+  color: var(--primary-senna) !important;
+}
+
+.section-title h2::after {
+  background: var(--primary-senna) !important;
+}
+
+/* Filter Produk */
+.product-filters li {
+  border: 1px solid var(--primary-senna);
+  color: var(--primary-senna);
+}
+
+.product-filters li:hover,
+.product-filters li.filter-active {
+  background-color: var(--primary-senna);
+  color: #ffffff;
+}
+
+/* Badges & Tabel Custom */
+.product-card .badge-category {
+  background-color: #f4ece0;
+  color: var(--primary-senna);
+}
+
+.feature-list {
+  border-left: 3px solid var(--primary-senna);
+}
+
+.feature-list i {
+  color: var(--primary-senna);
+}
+
+.table-custom th {
+  background-color: var(--primary-senna);
+  color: #ffffff;
+}
+
+/* ===================================================
+   PAGE TITLE & PRODUK CARD SPECIFIC STYLES
+   =================================================== */
+
+/* Header Page Title / Banner */
+.page-title {
+  background: #5a5a5a !important; /* Memaksa background menjadi medium grey sesuai warna asli */
+  padding: 80px 0 60px 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.page-title .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.8) !important; /* Garis miring '/' menjadi sangat jelas */
+}
+
+.page-title h1 {
+  color: #ffc107 !important;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Filter Produk / Portfolio Style */
+.product-filters {
+  padding: 0;
+  margin: 0 auto 30px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.product-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 4px 10px 4px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--primary-senna);
+  color: var(--primary-senna);
+}
+
+.product-filters li:hover,
+.product-filters li.filter-active {
+  background-color: var(--primary-senna);
+  color: #ffffff;
+}
+
+/* Cards Produk Induk */
+.product-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(166, 124, 30, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background-color: #f9f9f9;
+  padding: 15px;
+}
+
+.product-card .card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card .badge-category {
+  background-color: #f4ece0;
+  color: var(--primary-senna);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.product-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.product-card .card-text {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+/* Highlight Features List */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  font-size: 0.85rem;
+  color: #444444;
+  background: #fdfbf7;
+  border-left: 3px solid var(--primary-senna);
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+}
+
+.feature-list li {
+  margin-bottom: 4px;
+}
+
+.feature-list li:last-child {
+  margin-bottom: 0;
+}
+
+.feature-list i {
+  color: var(--primary-senna);
+  margin-right: 6px;
+}
+
+/* Utilities untuk penyaringan JS */
+.product-item {
+  transition: all 0.4s ease;
+}
+
+.product-item.is-hidden {
+  display: none !important;
+}
+
+/* ===================================================
+   DETAIL PRODUK SPECIFIC STYLES
+   =================================================== */
+
+/* Thumbnail Gallery */
+.img-thumbnail-custom {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.img-thumbnail-custom:hover,
+.img-thumbnail-custom.active {
+  border-color: var(--primary-senna);
+}
+
+/* Badge Stok & Kategori */
+.badge-stock {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Specification Box */
+.spec-box {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* ===================================================
+   PENYESUAIAN HEADER & TABEL SPESIFIKASI PRODUK
+   =================================================== */
+
+/* Override Header Banner (Medium Grey pas, tidak terlalu gelap) */
+.page-title,
+.page-title-custom {
+  background: #5a5a5a !important;
+  padding: 80px 0 60px 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Memastikan separator breadcrumb '/' berwarna terang */
+.page-title .breadcrumb-item + .breadcrumb-item::before,
+.page-title-custom .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Styling Tabel Spesifikasi */
+.table-custom {
+  font-size: 0.875rem !important;
+}
+
+.table-custom thead th {
+  background-color: #b58125 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-color: #a0701e !important;
+  padding: 10px 12px !important;
+}
+
+.table-custom td {
+  padding: 8px 12px !important;
+  vertical-align: middle;
+}
+
+/* Highlight Badge CCT Warna Khas */
+.cct-badge-3000 {
+  background-color: #fff3cd !important;
+  color: #b58125 !important;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.cct-badge-3500 {
+  background-color: #fff8e1 !important;
+  color: #b58125 !important;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.cct-badge-4000 {
+  background-color: #fefefe !important;
+  border: 1px solid #e0e0e0;
+  color: #8a7300 !important;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.cct-badge-5700 {
+  background-color: #e1f5fe !important;
+  color: #0288d1 !important;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Card Fitur Spesifikasi */
+.spec-feature-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
