@@ -358,6 +358,15 @@ h1, h2, h3, h4, h5, h6,
   display: inline-block;
 }
 
+.cct-badge-6500 {
+    background-color: #e6f7ff !important;
+    color: #0088cc !important;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
 /* Card Fitur Spesifikasi */
 .spec-feature-card {
   background: #ffffff;
@@ -365,4 +374,33 @@ h1, h2, h3, h4, h5, h6,
   border-radius: 8px;
   padding: 12px;
   text-align: center;
+}
+
+/* ===================================================
+   CUSTOM TAB SPECIFICATION (SESUAI GAMBAR 2)
+   =================================================== */
+.nav-tabs-custom {
+  border-bottom: 1px solid #dee2e6;
+  gap: 8px;
+}
+
+.nav-tabs-custom .nav-link {
+  color: #444444;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px 6px 0 0;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-tabs-custom .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.nav-tabs-custom .nav-link.active {
+  background-color: #b58125 !important;
+  color: #ffffff !important;
+  border-color: #b58125 !important;
+  font-weight: 700;
 }
