@@ -12,10 +12,10 @@
   <link href="assets/img/logo/favicon.webp" rel="icon">
   <link href="assets/img/logo/favicon.webp" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  <!-- Fonts (Optimized) -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,32 +31,12 @@
 
 <body class="portfolio-details-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo/Logo Senna PT Selaras - CMYK - coklat-resize 320px.webp" alt="Logo PT Selaras Dinamika Niaga" style="max-height: 64px;">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero">Beranda</a></li>
-          <li><a href="index.html#about">Tentang Kami</a></li>
-          <li><a href="produk.html" class="active">Produk</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#contact">Kontak</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#contact">Mulai Konsultasi</a>
-
-    </div>
-  </header>
+  <!-- Container Tempat Header Otomatis Dimuat -->
+  <div id="header-placeholder"></div>
 
   <main class="main">
 
-    <!-- Page Title Section (Sesuai Gambar 2) -->
+    <!-- Page Title Section -->
     <div class="page-title page-title-custom text-center py-5" data-aos="fade">
       <div class="container position-relative">
         <nav class="breadcrumbs mb-3">
@@ -128,9 +108,9 @@
         <!-- Tab Spesifikasi Produk -->
         <div class="row mt-5 pt-4" data-aos="fade-up" data-aos-delay="300">
           <div class="col-12">
-            <h3 class="fw-bold mb-4" style="color: #b58125;">Spesifikasi Teknis</h3>
+            <h3 class="fw-bold mb-4" style="color: #b58125;">Spesifikasi Teknis &amp; Varian Produk</h3>
 
-            <ul class="nav nav-tabs mb-4" id="spotlightTab" role="tablist">
+            <ul class="nav nav-tabs nav-tabs-custom mb-4" id="spotlightTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="spotlight-us-tab" data-bs-toggle="tab" data-bs-target="#spotlight-us-pane" type="button" role="tab" aria-controls="spotlight-us-pane" aria-selected="true" onclick="changeImage('assets/img/produk/lampu-spot-led-opple-us-series-4w-8w.webp')">
                   LED Spotlight US
@@ -426,6 +406,41 @@
     function changeImage(imageSrc) {
       document.getElementById('main-prod-img').src = imageSrc;
     }
+  </script>
+
+  <!-- Script Pemuat Header & Footer -->
+  <script>
+    // Memuat Header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+
+        // Tandai menu 'Produk' sebagai active secara otomatis
+        const navLinks = document.querySelectorAll('#navmenu a');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === 'produk.html') {
+            link.classList.add('active');
+          }
+        });
+
+        // Inisialisasi ulang Mobile Nav Toggle bawaan template
+        const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+        if (mobileNavToggleBtn) {
+          mobileNavToggleBtn.addEventListener('click', function() {
+            document.querySelector('body').classList.toggle('mobile-nav-active');
+            this.classList.toggle('bi-list');
+            this.classList.toggle('bi-x');
+          });
+        }
+      });
+
+    // Memuat Footer ke #footer-placeholder yang sudah ada
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
   </script>
 
 </body>

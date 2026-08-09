@@ -12,10 +12,10 @@
   <link href="assets/img/logo/favicon.webp" rel="icon">
   <link href="assets/img/logo/favicon.webp" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  <!-- Fonts (Optimized) -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,165 +26,28 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- Custom Theme Color SENNA -->
-  <style>
-    :root {
-      --accent-color: #a67c1e !important;
-      --heading-color: #a67c1e !important;
-      --nav-hover-color: #a67c1e !important;
-    }
-
-    .page-title {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/img/hero-bg.jpg') center center;
-      background-size: cover;
-      padding: 60px 0 40px 0;
-      color: #ffffff;
-    }
-
-    .page-title h1 {
-      color: #a67c1e !important;
-      font-weight: 700;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: #a67c1e !important;
-    }
-
-    .btn-primary-senna {
-      background-color: #a67c1e !important;
-      color: #ffffff !important;
-      border: 1px solid #a67c1e !important;
-      padding: 10px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .btn-primary-senna:hover {
-      background-color: #7a5a13 !important;
-      border-color: #7a5a13 !important;
-      color: #ffffff !important;
-    }
-
-    .btn-outline-senna {
-      background-color: transparent !important;
-      color: #a67c1e !important;
-      border: 1px solid #a67c1e !important;
-      padding: 10px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .btn-outline-senna:hover {
-      background-color: #a67c1e !important;
-      color: #ffffff !important;
-    }
-
-    /* Product Gallery */
-    .main-prod-img {
-      width: 100%;
-      height: 380px;
-      object-fit: contain;
-      border-radius: 8px;
-      background: #f9f9f9;
-      padding: 20px;
-      border: 1px solid #eee;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    /* Tabs Styling */
-    .nav-tabs .nav-link {
-      color: #555;
-      font-weight: 600;
-      border: 1px solid transparent;
-    }
-
-    .nav-tabs .nav-link.active {
-      color: #a67c1e !important;
-      border-color: #a67c1e #a67c1e #fff !important;
-      border-bottom: 3px solid #a67c1e !important;
-    }
-
-    /* Table Styling */
-    .table-spec {
-      width: 100%;
-      margin-top: 15px;
-    }
-
-    .table-spec th {
-      background-color: #a67c1e;
-      color: #ffffff;
-      font-weight: 600;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    .table-spec td {
-      vertical-align: middle;
-      font-size: 0.88rem;
-    }
-
-    .badge-cct {
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 4px;
-      display: inline-block;
-      font-weight: 600;
-    }
-
-    .cct-3000k { background-color: #ffe8cc; color: #d97706; }
-    .cct-4000k { background-color: #fef3c7; color: #b45309; }
-    .cct-5700k { background-color: #e0f2fe; color: #0369a1; }
-    .cct-6500k { background-color: #e0f2fe; color: #0284c7; }
-  </style>
+  <link href="assets/css/theme.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
-  <!-- Header Section -->
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo/Logo Senna PT Selaras - CMYK - coklat-resize 320px.webp" alt="Logo PT Selaras Dinamika Niaga" style="max-height: 64px;">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="index.html#about">Tentang Kami</a></li>
-          <li><a href="produk.html" class="active">Produk</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#contact">Kontak</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-primary-senna" href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20ingin%20konsultasi%20Downlight%20LED%20OPPLE" target="_blank">Mulai Konsultasi</a>
-
-    </div>
-  </header>
+  <!-- Container Tempat Header Otomatis Dimuat -->
+  <div id="header-placeholder"></div>
 
   <main class="main">
 
-    <!-- Page Title / Breadcrumb -->
-    <div class="page-title">
-      <div class="container">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb mb-2">
-            <li class="breadcrumb-item"><a href="index.html" class="text-white">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="produk.html" class="text-white">Produk</a></li>
+    <!-- Page Title Section -->
+    <div class="page-title text-center py-5" style="background-color: #5a5a5a; color: #ffffff;" data-aos="fade">
+      <div class="container position-relative">
+        <nav class="breadcrumbs mb-3">
+          <ol class="breadcrumb justify-content-start mb-0" style="background: transparent;">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
             <li class="breadcrumb-item active text-warning" aria-current="page">Downlight LED OPPLE</li>
           </ol>
         </nav>
-        <h1>Downlight LED OPPLE</h1>
-        <p class="mb-0">Pencahayaan Plafon Efisien, Bebas Silau, dan Tahan Lama untuk Proyek &amp; Residential</p>
+        <h1 class="display-5 fw-bold text-warning mb-2">Downlight LED OPPLE</h1>
+        <p class="lead text-white mb-0">Pencahayaan Plafon Efisien, Bebas Silau, dan Tahan Lama untuk Proyek &amp; Residential</p>
       </div>
     </div>
 
@@ -893,77 +756,69 @@
 
   </main>
 
-  <!-- Footer Section -->
-  <footer id="footer" class="footer light-background p-0">
-    <div class="container footer-top py-5">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center mb-3 text-decoration-none">
-            <span class="sitename fw-bold" style="color: #a67c1e; font-size: 2rem;">SENNA</span>
-          </a>
-          <p style="color: #555555; max-width: 420px; line-height: 1.6;">
-            PT Selaras Dinamika Niaga adalah perusahaan penyedia barang berkualitas tinggi untuk industri, perhotelan, kesehatan, dan pendidikan.
-          </p>
-        </div>
-
-        <div class="col-lg-3 col-6 footer-links">
-          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Navigasi</h4>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="index.html" class="text-decoration-none" style="color: #555555;">Beranda</a></li>
-            <li class="mb-2"><a href="produk.html" class="text-decoration-none" style="color: #555555;">Katalog Produk</a></li>
-            <li class="mb-2"><a href="index.html#portfolio" class="text-decoration-none" style="color: #555555;">Portfolio</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-6 footer-contact text-start">
-          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Hubungi Kami</h4>
-          <p class="mb-3" style="color: #555555;">Jl. Sunda No. 85 Bandung</p>
-          <p class="mb-1" style="color: #333333;"><strong>Telepon:</strong> <span style="color: #555555;">+62-821-3072-0890</span></p>
-          <p class="mb-0" style="color: #333333;"><strong>Email:</strong> <span style="color: #555555;">info@senna-id.com</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright text-center py-3" style="background-color: #a67c1e; color: #ffffff;">
-      <div class="container">
-        <p class="mb-0">© Copyright 2026 <strong>PT Selaras Dinamika Niaga</strong> All Rights Reserved</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Container Tempat Footer Otomatis Dimuat -->
+  <div id="footer-placeholder"></div>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- JavaScript Pengganti Gambar Otomatis Saat Switch Tab -->
+  <!-- Script Ganti Gambar saat Tab Diklik -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const tabButtons = document.querySelectorAll('#downlightTab button[data-bs-toggle="tab"]');
-      const mainProductImg = document.getElementById('mainProductImg');
+    function changeImage(imageSrc) {
+      document.getElementById('main-prod-img').src = imageSrc;
+    }
+  </script>
 
-      tabButtons.forEach(button => {
-        button.addEventListener('shown.bs.tab', function (event) {
-          const newImgSrc = event.target.getAttribute('data-img');
-          if (newImgSrc && mainProductImg) {
-            mainProductImg.style.opacity = '0.3';
-            setTimeout(() => {
-              mainProductImg.src = newImgSrc;
-              mainProductImg.style.opacity = '1';
-            }, 150);
+  <!-- Script Pemuat Header & Footer -->
+  <script>
+    // Memuat Header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+
+        // Tandai menu 'Produk' sebagai active secara otomatis
+        const navLinks = document.querySelectorAll('#navmenu a');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === 'produk.html') {
+            link.classList.add('active');
           }
         });
+
+        // Inisialisasi ulang Mobile Nav Toggle bawaan template
+        const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+        if (mobileNavToggleBtn) {
+          mobileNavToggleBtn.addEventListener('click', function() {
+            document.querySelector('body').classList.toggle('mobile-nav-active');
+            this.classList.toggle('bi-list');
+            this.classList.toggle('bi-x');
+          });
+        }
       });
-    });
+
+    // Memuat Footer ke #footer-placeholder yang sudah ada
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
   </script>
 
 </body>
-
 </html>

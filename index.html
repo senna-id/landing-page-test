@@ -31,28 +31,8 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo/Logo Senna PT Selaras - CMYK - coklat-resize 320px.webp" alt="Logo PT Selaras Dinamika Niaga" style="max-height: 64px;">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Beranda</a></li>
-          <li><a href="#about">Tentang Kami</a></li>
-          <li><a href="produk.html">Produk</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="#contact">Mulai Konsultasi</a>
-
-    </div>
-  </header>
+  <!-- Container Tempat Header Otomatis Dimuat -->
+  <div id="header-placeholder"></div>
 
   <main class="main">
 
@@ -449,43 +429,8 @@
 
   </main>
 
-  <footer id="footer" class="footer light-background p-0">
-    <div class="container footer-top py-5">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center mb-3 text-decoration-none">
-            <span class="sitename fw-bold" style="color: #a67c1e; font-size: 2rem;">SENNA</span>
-          </a>
-          <p style="color: #555555; max-width: 420px; line-height: 1.6;">
-            PT Selaras Dinamika Niaga adalah perusahaan yang berdedikasi untuk menyediakan barang berkualitas tinggi bagi berbagai sektor industri, perhotelan, kesehatan, dan pendidikan.
-          </p>
-        </div>
-
-        <div class="col-lg-3 col-6 footer-links">
-          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Navigasi</h4>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#hero" class="text-decoration-none" style="color: #555555;">Beranda</a></li>
-            <li class="mb-2"><a href="#about" class="text-decoration-none" style="color: #555555;">Tentang Kami</a></li>
-            <li class="mb-2"><a href="produk.html" class="text-decoration-none" style="color: #555555;">Katalog Produk</a></li>
-            <li class="mb-2"><a href="#portfolio" class="text-decoration-none" style="color: #555555;">Portfolio</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-6 footer-contact text-start">
-          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Hubungi Kami</h4>
-          <p class="mb-3" style="color: #555555;">Jl. Sunda No. 85 Bandung</p>
-          <p class="mb-1" style="color: #333333;"><strong>Telepon:</strong> <span style="color: #555555;">+62-821-3072-0890</span></p>
-          <p class="mb-0" style="color: #333333;"><strong>Email:</strong> <span style="color: #555555;">info@senna-id.com</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright text-center py-3" style="background-color: #a67c1e; color: #ffffff; margin-top: 0;">
-      <div class="container">
-        <p class="mb-0" style="color: #ffffff;">© Copyright 2026 <strong>PT Selaras Dinamika Niaga</strong> All Rights Reserved</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Container Tempat Footer Otomatis Dimuat -->
+  <div id="footer-placeholder"></div>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -505,6 +450,63 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Script Ganti Gambar saat Tab Diklik -->
+  <script>
+    function changeImage(imageSrc) {
+      document.getElementById('main-prod-img').src = imageSrc;
+    }
+  </script>
+
+  <!-- Script Pemuat Header & Footer -->
+  <script>
+    // Memuat Header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        const headerContainer = document.getElementById('header-placeholder');
+        if (headerContainer) {
+          headerContainer.innerHTML = data;
+
+          // Hapus semua class active terlebih dahulu
+          const navLinks = document.querySelectorAll('#navmenu a');
+          navLinks.forEach(link => link.classList.remove('active'));
+
+          // Tandai menu yang sesuai halaman aktif saat ini
+          const currentPath = window.location.pathname;
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (currentPath.includes('produk') || currentPath.includes('detail-')) {
+              if (href === 'produk.html') link.classList.add('active');
+            } else {
+              if (href === 'index.html#hero' || href === 'index.html' || href === '#hero') {
+                link.classList.add('active');
+              }
+            }
+          });
+
+          // Inisialisasi ulang Mobile Nav Toggle bawaan template
+          const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+          if (mobileNavToggleBtn) {
+            mobileNavToggleBtn.addEventListener('click', function() {
+              document.querySelector('body').classList.toggle('mobile-nav-active');
+              this.classList.toggle('bi-list');
+              this.classList.toggle('bi-x');
+            });
+          }
+        }
+      });
+
+    // Memuat Footer ke #footer-placeholder yang sudah ada
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        const footerContainer = document.getElementById('footer-placeholder');
+        if (footerContainer) {
+          footerContainer.innerHTML = data;
+        }
+      });
+  </script>
 
 </body>
 </html>

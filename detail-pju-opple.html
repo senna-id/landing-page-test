@@ -12,10 +12,10 @@
   <link href="assets/img/logo/favicon.webp" rel="icon">
   <link href="assets/img/logo/favicon.webp" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  <!-- Fonts (Optimized) -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,104 +26,13 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- Custom Theme Color SENNA -->
-  <style>
-    :root {
-      --accent-color: #a67c1e !important;
-      --heading-color: #a67c1e !important;
-      --nav-hover-color: #a67c1e !important;
-      --surface-color: #ffffff;
-      --contrast-color: #ffffff;
-    }
-
-    h1, h2, h3, h4, h5, h6, 
-    .section-title h2, 
-    .hero h1 {
-      color: #a67c1e !important;
-    }
-
-    .btn-getstarted, 
-    .btn-get-started, 
-    .nav-tabs .nav-link.active {
-      background-color: #a67c1e !important;
-      color: #ffffff !important;
-      border-color: #a67c1e !important;
-    }
-
-    .nav-tabs .nav-link {
-      color: #555555;
-      font-weight: 600;
-    }
-
-    .nav-tabs .nav-link:hover {
-      color: #a67c1e;
-    }
-
-    .navmenu a:hover, 
-    .navmenu .active, 
-    .navmenu .active:focus {
-      color: #a67c1e !important;
-    }
-
-    .table-custom th {
-      background-color: #a67c1e;
-      color: #ffffff;
-    }
-
-    .breadcrumb-item + .breadcrumb-item::before {
-      color: #ffffff !important;
-    }
-
-    .table-custom {
-      font-size: 0.875rem;
-    }
-
-    /* Badge Highlight CCT 5700K (Daylight) */
-    .cct-badge-5700 {
-      background-color: #e0f2fe;
-      color: #0369a1;
-      font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      display: inline-block;
-    }
-
-    /* Badge Spec Highlights */
-    .spec-feature-card {
-      background-color: #f8f9fa;
-      border: 1px solid #e9ecef;
-      border-radius: 8px;
-      padding: 12px 16px;
-      text-align: center;
-    }
-  </style>
+  <link href="assets/css/theme.css" rel="stylesheet">
 </head>
 
 <body class="portfolio-details-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo/Logo Senna PT Selaras - CMYK - coklat-resize 320px.webp" alt="Logo PT Selaras Dinamika Niaga" style="max-height: 64px;">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero">Beranda</a></li>
-          <li><a href="index.html#about">Tentang Kami</a></li>
-          <li><a href="produk.html" class="active">Produk</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#contact">Kontak</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#contact">Mulai Konsultasi</a>
-
-    </div>
-  </header>
+  <!-- Container Tempat Header Otomatis Dimuat -->
+  <div id="header-placeholder"></div>
 
   <main class="main">
 
@@ -373,43 +282,8 @@
 
   </main>
 
-  <footer id="footer" class="footer light-background p-0">
-    <div class="container footer-top py-5">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center mb-3 text-decoration-none">
-            <span class="sitename fw-bold" style="color: #a67c1e; font-size: 2rem;">SENNA</span>
-          </a>
-          <p style="color: #555555; max-width: 420px; line-height: 1.6;">
-            PT Selaras Dinamika Niaga adalah distributor resmi OPPLE Lighting yang berdedikasi menyediakan solusi pencahayaan berkualitas tinggi untuk berbagai sektor industri dan proyek komersial.
-          </p>
-        </div>
-
-        <div class="col-lg-3 col-6 footer-links">
-          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Navigasi</h4>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="index.html#hero" class="text-decoration-none" style="color: #555555;">Beranda</a></li>
-            <li class="mb-2"><a href="index.html#about" class="text-decoration-none" style="color: #555555;">Tentang Kami</a></li>
-            <li class="mb-2"><a href="produk.html" class="text-decoration-none" style="color: #555555;">Katalog Produk</a></li>
-            <li class="mb-2"><a href="index.html#portfolio" class="text-decoration-none" style="color: #555555;">Portfolio</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-6 footer-contact text-start">
-          <h4 style="color: #a67c1e; font-size: 1.1rem; font-weight: 600;" class="mb-3">Hubungi Kami</h4>
-          <p class="mb-3" style="color: #555555;">Jl. Sunda No. 85 Bandung</p>
-          <p class="mb-1" style="color: #333333;"><strong>Telepon:</strong> <span style="color: #555555;">+62-821-3072-0890</span></p>
-          <p class="mb-0" style="color: #333333;"><strong>Email:</strong> <span style="color: #555555;">info@senna-id.com</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright text-center py-3" style="background-color: #a67c1e; color: #ffffff; margin-top: 0;">
-      <div class="container">
-        <p class="mb-0" style="color: #ffffff;">© Copyright 2026 <strong>PT Selaras Dinamika Niaga</strong> All Rights Reserved</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Container Tempat Footer Otomatis Dimuat -->
+  <div id="footer-placeholder"></div>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -430,35 +304,46 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Script tambahan interaktivitas tab/gambar PJU -->
+  <!-- Script Ganti Gambar saat Tab Diklik -->
   <script>
-    const scrollTop = document.querySelector('.scroll-top');
-    if (scrollTop) {
-      const togglescrollTop = () => {
-        window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-      };
-      window.addEventListener('load', togglescrollTop);
-      document.addEventListener('scroll', togglescrollTop);
-      scrollTop.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+    function changeImage(imageSrc) {
+      document.getElementById('main-prod-img').src = imageSrc;
     }
+  </script>
 
-    // Script pergantian gambar saat berpindah Tab LED Streetlight EQ / EA
-    const mainImg = document.getElementById('main-prod-img');
-    const eqTab = document.getElementById('pju-eq-tab');
-    const eaTab = document.getElementById('pju-ea-tab');
+  <!-- Script Pemuat Header & Footer -->
+  <script>
+    // Memuat Header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
 
-    if (mainImg && eqTab && eaTab) {
-      eqTab.addEventListener('shown.bs.tab', function () {
-        mainImg.src = 'assets/img/produk/lampu-pju-led-opple-eq-series-40w.webp';
+        // Tandai menu 'Produk' sebagai active secara otomatis
+        const navLinks = document.querySelectorAll('#navmenu a');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === 'produk.html') {
+            link.classList.add('active');
+          }
+        });
+
+        // Inisialisasi ulang Mobile Nav Toggle bawaan template
+        const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+        if (mobileNavToggleBtn) {
+          mobileNavToggleBtn.addEventListener('click', function() {
+            document.querySelector('body').classList.toggle('mobile-nav-active');
+            this.classList.toggle('bi-list');
+            this.classList.toggle('bi-x');
+          });
+        }
       });
 
-      eaTab.addEventListener('shown.bs.tab', function () {
-        mainImg.src = 'assets/img/produk/lampu-pju-led-opple-ea-series-80w.webp';
+    // Memuat Footer ke #footer-placeholder yang sudah ada
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
       });
-    }
   </script>
 
 </body>
