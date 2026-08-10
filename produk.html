@@ -59,6 +59,7 @@
         <ul class="product-filters" id="product-filters" data-aos="fade-up" data-aos-delay="100">
           <li class="filter-active" data-filter="*">Semua Produk</li>
           <li data-filter=".filter-opple">Lampu LED OPPLE</li>
+          <li data-filter=".filter-electrical" data-filter-group=".filter-breaker, .filter-kabel, .filter-komponen, .filter-saklar">Electrical &amp; Industrial Supplies</li>
           <li data-filter=".filter-breaker">Circuit Breaker &amp; Kontaktor</li>
           <li data-filter=".filter-kabel">Kabel &amp; Aksesori</li>
           <li data-filter=".filter-komponen">Komponen Panel</li>
@@ -267,7 +268,7 @@
           </div>
 
           <!-- GARIS PEMBATAS & SUB-HEADER KATEGORI KELISTRIKAN -->
-          <div class="col-12 product-item filter-breaker filter-kabel filter-komponen filter-saklar mt-5 pt-3">
+          <div class="col-12 product-item stamp-header filter-breaker filter-kabel filter-komponen filter-saklar mt-5 pt-3">
             <div class="border-top pt-4 mb-3">
               <h3 class="fw-bold text-dark mb-1" style="color: var(--accent-color, #a67c1e);">Lini Produk Electrical &amp; Industrial Supplies</h3>
               <p class="text-muted small">Breaker, Kabel, Switchgear, dan Otomasi Panel untuk kebutuhan proyek &amp; manufaktur.</p>
@@ -376,23 +377,53 @@
       if (grid) {
         let iso = new Isotope(grid, {
           itemSelector: '.product-item',
-          layoutMode: 'masonry'
-        });
-
-        // Pastikan posisi ditata ulang setelah gambar selesai dimuat
-        imagesLoaded(grid, function() {
-          iso.layout();
+          layoutMode: 'masonry',
+          percentPosition: true,
+          stamp: '.stamp-header',
+          masonry: {
+            columnWidth: '.col-lg-4:not(.stamp-header)'
+          },
+          transitionDuration: 0
         });
 
         let filterButtons = document.querySelectorAll('#product-filters li');
+
+        // Fungsi penyaringan
+        function applyFilter(button) {
+          filterButtons.forEach(btn => btn.classList.remove('filter-active'));
+          button.classList.add('filter-active');
+
+          let filterGroup = button.getAttribute('data-filter-group');
+          let filterValue = filterGroup ? filterGroup : button.getAttribute('data-filter');
+
+          iso.arrange({ filter: filterValue });
+
+          setTimeout(function() {
+            iso.layout();
+          }, 350);
+        }
+
+        // Event listener klik tombol filter
         filterButtons.forEach(function(button) {
           button.addEventListener('click', function() {
-            filterButtons.forEach(btn => btn.classList.remove('filter-active'));
-            this.classList.add('filter-active');
-
-            let filterValue = this.getAttribute('data-filter');
-            iso.arrange({ filter: filterValue });
+            applyFilter(this);
           });
+        });
+
+        // Deteksi parameter URL (?filter=electrical) dari index.html
+        let urlParams = new URLSearchParams(window.location.search);
+        let filterParam = urlParams.get('filter');
+
+        if (filterParam === 'electrical') {
+          let electricalBtn = document.querySelector('#product-filters li[data-filter=".filter-electrical"]');
+          if (electricalBtn) {
+            applyFilter(electricalBtn);
+          }
+        }
+
+        // Pastikan layout diperbarui setelah gambar selesai dimuat
+        imagesLoaded(grid, function() {
+          iso.layout();
         });
       }
     });
