@@ -168,71 +168,20 @@
                   </div>
                 </div>
 
-                <!-- Tabel Spesifikasi (Kembali Sesuai Gambar 1) -->
+                <!-- Tabel Spesifikasi US (Dinamis dari Google Sheets) -->
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped align-middle table-custom">
-                    <thead>
-                      <tr>
-                        <th>Nama / Kode Produk</th>
-                        <th>Daya (Watt)</th>
-                        <th>CCT (K)</th>
-                        <th>Lumen (lm)</th>
-                      </tr>
+                  <table class="table table-bordered table-striped align-middle table-custom" id="table-us-container">
+                    <thead id="table-head-us">
+                      <!-- Header terisi otomatis secara dinamis -->
                     </thead>
-                    <tbody>
+                    <tbody id="table-body-us">
                       <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-4W-3000-WH-GP</td>
-                        <td>4W</td>
-                        <td><span class="cct-badge-3000">3000K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>270 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-4W-4000-WH-GP</td>
-                        <td>4W</td>
-                        <td><span class="cct-badge-4000">4000K</span> <span class="ms-1 text-muted small">(Cool White)</span></td>
-                        <td>290 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-4W-5700-WH-GP</td>
-                        <td>4W</td>
-                        <td><span class="cct-badge-5700">5700K</span> <span class="ms-1 text-muted small">(Cool Daylight)</span></td>
-                        <td>290 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-6W-3000-WH-GP</td>
-                        <td>6W</td>
-                        <td><span class="cct-badge-3000">3000K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>400 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-6W-4000-WH-GP</td>
-                        <td>6W</td>
-                        <td><span class="cct-badge-4000">4000K</span> <span class="ms-1 text-muted small">(Cool White)</span></td>
-                        <td>450 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-6W-5700-WH-GP</td>
-                        <td>6W</td>
-                        <td><span class="cct-badge-5700">5700K</span> <span class="ms-1 text-muted small">(Cool Daylight)</span></td>
-                        <td>450 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-8W-3000-WH-GP</td>
-                        <td>8W</td>
-                        <td><span class="cct-badge-3000">3000K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>550 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-8W-4000-WH-GP</td>
-                        <td>8W</td>
-                        <td><span class="cct-badge-4000">4000K</span> <span class="ms-1 text-muted small">(Cool White)</span></td>
-                        <td>600 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSpotlightRA-US R70-8W-5700-WH-GP</td>
-                        <td>8W</td>
-                        <td><span class="cct-badge-5700">5700K</span> <span class="ms-1 text-muted small">(Cool Daylight)</span></td>
-                        <td>600 lm</td>
+                        <tr>
+						  <td class="text-center py-4 text-muted">
+							<div class="spinner-border spinner-border-sm text-warning me-2" role="status"></div>
+							Memuat data produk...
+						  </td>
+						</tr>
                       </tr>
                     </tbody>
                   </table>
@@ -298,71 +247,15 @@
                   </div>
                 </div>
 
-                <!-- Tabel Spesifikasi BK -->
+                <!-- Tabel Spesifikasi BK (Dinamis dari Google Sheets) -->
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped align-middle table-custom">
-                    <thead>
-                      <tr>
-                        <th>Nama / Kode Produk</th>
-                        <th>Daya (Watt)</th>
-                        <th>CCT (K)</th>
-                        <th>Lumen (lm)</th>
-                      </tr>
+                  <table class="table table-bordered table-striped align-middle table-custom" id="table-bk-container">
+                    <thead id="table-head-bk">
+                      <!-- Header akan terisi otomatis secara dinamis -->
                     </thead>
-                    <tbody>
+                    <tbody id="table-body-bk">
                       <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 5W-3000-24D-BK</td>
-                        <td>5W</td>
-                        <td><span class="cct-badge-3000">3000K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>390 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 5W-3500-24D-BK</td>
-                        <td>5W</td>
-                        <td><span class="cct-badge-3500">3500K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>390 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY-5W-4000-24D-BK</td>
-                        <td>5W</td>
-                        <td><span class="cct-badge-4000">4000K</span> <span class="ms-1 text-muted small">(Cool White)</span></td>
-                        <td>390 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 7W-3000-24D-BK</td>
-                        <td>7W</td>
-                        <td><span class="cct-badge-3000">3000K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>520 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 7W-3500-24D-BK</td>
-                        <td>7W</td>
-                        <td><span class="cct-badge-3500">3500K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>520 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 7W-4000-24D-BK</td>
-                        <td>7W</td>
-                        <td><span class="cct-badge-4000">4000K</span> <span class="ms-1 text-muted small">(Cool White)</span></td>
-                        <td>520 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 9W-3000-24D-BK</td>
-                        <td>9W</td>
-                        <td><span class="cct-badge-3000">3000K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>580 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 9W-3500-24D-BK</td>
-                        <td>9W</td>
-                        <td><span class="cct-badge-3500">3500K</span> <span class="ms-1 text-muted small">(Warm White)</span></td>
-                        <td>580 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold text-dark">LEDSPOTRA-BY- 9W-4000-24D-BK</td>
-                        <td>9W</td>
-                        <td><span class="cct-badge-4000">4000K</span> <span class="ms-1 text-muted small">(Cool White)</span></td>
-                        <td>580 lm</td>
+                        <td class="text-center text-muted">Memuat data produk...</td>
                       </tr>
                     </tbody>
                   </table>
@@ -443,5 +336,147 @@
       });
   </script>
 
+  <!-- Script Mengambil Data Produk dari Google Sheets -->
+  <script>
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyD1UcAQu2TFLu7N4Do-39FbeK7gzOcyQHfb3oGcZoeLCQxIsk9noQLDT0JoJXmcH6x/exec?sheet=opple';
+
+    function renderDynamicTable(products, headId, bodyId) {
+      const tableHead = document.getElementById(headId);
+      tableHead.innerHTML = '';
+      const tableBody = document.getElementById(bodyId);
+      tableBody.innerHTML = '';
+
+      if (!products || products.length === 0) {
+        tableBody.innerHTML = '<tr><td class="text-center text-muted">Belum ada data produk tersedia.</td></tr>';
+        return;
+      }
+
+      // 1. Abaikan kolom khusus kontrol
+      const ignoredKeys = ['series', 'status'];
+
+      // 2. Ambil daftar key kolom yang tersedia
+      const allKeys = Object.keys(products[0]).filter(key => !ignoredKeys.includes(key.trim().toLowerCase()));
+
+      // 3. Filter hanya kolom yang punya isi di minimal 1 baris
+      const activeKeys = allKeys.filter(key => {
+        return products.some(item => {
+          const val = item[key];
+          return val !== undefined && val !== null && String(val).trim() !== '' && String(val).trim() !== '-';
+        });
+      });
+
+      // 4. Render Header
+      let headHtml = '<tr>';
+      activeKeys.forEach((key, index) => {
+        if (index === 0) {
+          headHtml += `<th>${key}</th>`;
+        } else {
+          headHtml += `<th class="text-center">${key}</th>`;
+        }
+      });
+      headHtml += '</tr>';
+      tableHead.innerHTML = headHtml;
+
+      // 5. Render Isi Baris
+      let bodyHtml = '';
+      products.forEach(item => {
+        // Cari nilai status dengan aman
+        const statusKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'status');
+        const statusValue = statusKey ? String(item[statusKey] || '').trim().toLowerCase() : '';
+        const isDiscontinued = statusValue === 'discontinued';
+
+        const rowClass = isDiscontinued ? 'class="table-secondary opacity-75"' : '';
+
+        bodyHtml += `<tr ${rowClass}>`;
+        activeKeys.forEach((key, index) => {
+          let val = item[key] !== undefined && item[key] !== null ? String(item[key]).trim() : '-';
+
+          // Format CCT Badge jika ada angka + K (misal: 3000K)
+          if (key.toLowerCase().includes('cct') || val.match(/^\d{4}K$/i)) {
+            const numVal = val.replace(/\D/g, '');
+            if (numVal) {
+              val = `<span class="cct-badge-${numVal}">${val}</span>`;
+            }
+          }
+
+          // Format jika status Discontinued
+          if (index === 0 && isDiscontinued) {
+            val = `<strong>${val}</strong> <span class="badge bg-danger ms-2">Discontinued</span>`;
+          } else if (index === 0) {
+            val = `<strong>${val}</strong>`;
+          }
+
+          if (index === 0) {
+            bodyHtml += `<td>${val}</td>`;
+          } else {
+            bodyHtml += `<td class="text-center">${val}</td>`;
+          }
+        });
+        bodyHtml += '</tr>';
+      });
+
+      tableBody.innerHTML = bodyHtml;
+    }
+
+    async function loadProductsFromSheet() {
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL);
+        const data = await response.json();
+
+        if (data.error) {
+          console.error("Error Apps Script:", data.error);
+          document.getElementById('table-body-us').innerHTML = `<tr><td class="text-center text-danger">Error: ${data.error}</td></tr>`;
+          document.getElementById('table-body-bk').innerHTML = `<tr><td class="text-center text-danger">Error: ${data.error}</td></tr>`;
+          return;
+        }
+
+        if (!Array.isArray(data) || data.length === 0) {
+          document.getElementById('table-body-us').innerHTML = '<tr><td class="text-center text-warning">Data di Google Sheets kosong.</td></tr>';
+          document.getElementById('table-body-bk').innerHTML = '<tr><td class="text-center text-warning">Data di Google Sheets kosong.</td></tr>';
+          return;
+        }
+
+        // Fungsi Pembantu Pencocokan Seri
+        const getSeriesValue = (item) => {
+          const seriesKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'series');
+          return seriesKey ? String(item[seriesKey] || '').trim().toUpperCase() : '';
+        };
+
+        const getStatusValue = (item) => {
+          const statusKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'status');
+          return statusKey ? String(item[statusKey] || '').trim().toLowerCase() : '';
+        };
+
+        // Filter Series SPOT-US (Cocokkan Spot-US / SPOT-US / SPOT_US)
+        const usProducts = data.filter(item => {
+          const seriesVal = getSeriesValue(item);
+          const statusVal = getStatusValue(item);
+          return (seriesVal === 'SPOT-US' || seriesVal === 'SPOT_US') && statusVal !== 'hidden' && statusVal !== 'nonaktif';
+        });
+
+        // Filter Series SPOT-BK (Cocokkan Spot-BK / SPOT-BK / SPOT_BK)
+        const bkProducts = data.filter(item => {
+          const seriesVal = getSeriesValue(item);
+          const statusVal = getStatusValue(item);
+          return (seriesVal === 'SPOT-BK' || seriesVal === 'SPOT_BK') && statusVal !== 'hidden' && statusVal !== 'nonaktif';
+        });
+
+        // Sort Discontinued di Paling Bawah
+        usProducts.sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+        bkProducts.sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+
+        // Render ke Tabel
+        renderDynamicTable(usProducts, 'table-head-us', 'table-body-us');
+        renderDynamicTable(bkProducts, 'table-head-bk', 'table-body-bk');
+
+      } catch (error) {
+        console.error('Gagal mengambil data:', error);
+        document.getElementById('table-body-us').innerHTML = '<tr><td class="text-center text-danger">Gagal memuat data produk. Pastikan koneksi/Apps Script benar.</td></tr>';
+        document.getElementById('table-body-bk').innerHTML = '<tr><td class="text-center text-danger">Gagal memuat data produk. Pastikan koneksi/Apps Script benar.</td></tr>';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadProductsFromSheet);
+  </script>
 </body>
 </html>
