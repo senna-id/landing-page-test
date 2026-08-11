@@ -419,9 +419,30 @@
     }
 
     async function loadProductsFromSheet() {
+      const CACHE_KEY = 'opple_products_cache';
+      const CACHE_TIME_KEY = 'opple_products_cache_time';
+      const CACHE_DURATION = 10 * 60 * 1000; // Cache berlaku 10 Menit (dalam milidetik)
+	  
       try {
-        const response = await fetch(GOOGLE_SCRIPT_URL);
-        const data = await response.json();
+        let data = null;
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+        const now = new Date().getTime();
+		
+		// 1. Cek apakah ada data cache yang belum kadaluarsa (kurang dari 10 menit)
+        if (cachedData && cachedTime && (now - cachedTime < CACHE_DURATION)) {
+          data = JSON.parse(cachedData);
+        } else {
+          // 2. Jika cache habis / belum ada, ambil data baru dari Google Apps Script
+          const response = await fetch(GOOGLE_SCRIPT_URL);
+          data = await response.json();
+
+          if (!data.error && Array.isArray(data)) {
+            // Simpan data terbaru ke cache
+            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+            localStorage.setItem(CACHE_TIME_KEY, now.toString());
+          }
+        }
 
         if (data.error) {
           console.error("Error Apps Script:", data.error);
