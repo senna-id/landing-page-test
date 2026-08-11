@@ -12,10 +12,10 @@
   <link href="assets/img/logo/favicon.webp" rel="icon">
   <link href="assets/img/logo/favicon.webp" rel="apple-touch-icon">
 
-  <!-- Fonts (Optimized) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,27 +26,173 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/theme.css" rel="stylesheet">
+
+  <!-- Custom Theme Color SENNA -->
+  <style>
+    :root {
+      --accent-color: #ffc107 !important; /* Disamakan menjadi Gold Cerah sesuai Gambar 1 */
+      --heading-color: #ffc107 !important;
+      --nav-hover-color: #ffc107 !important;
+      --senna-gold-dark: #b58125; /* Warna dasar tombol coklat gold yang disukai */
+      --senna-gold-hover: #9c6e1e;
+    }
+
+    .page-title {
+      background: #525252; /* Latar belakang abu-abu solid gelap seragam dengan Gambar 1 */
+      padding: 40px 0;
+      color: #ffffff;
+    }
+
+    .page-title h1 {
+      color: #ffc107 !important; /* Gold cerah mencolok */
+      font-weight: 700;
+    }
+
+    /* Warna judul pada konten detail produk */
+    .product-detail-title {
+      color: #b58125 !important;
+      font-weight: 700;
+    }
+
+    .section-title-custom {
+      color: #b58125 !important;
+    }
+
+    /* Styling Tombol Utama (Minta Penawaran / Kontak Kami) */
+    .btn-primary-senna {
+      background-color: var(--senna-gold-dark) !important;
+      color: #ffffff !important;
+      border: 1px solid var(--senna-gold-dark) !important;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn-primary-senna:hover {
+      background-color: var(--senna-gold-hover) !important;
+      border-color: var(--senna-gold-hover) !important;
+      color: #ffffff !important;
+    }
+
+    /* Styling Tombol Outline (Download PDF) */
+    .btn-outline-senna {
+      background-color: transparent !important;
+      color: var(--senna-gold-dark) !important;
+      border: 1px solid var(--senna-gold-dark) !important;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn-outline-senna:hover {
+      background-color: var(--senna-gold-dark) !important;
+      color: #ffffff !important;
+    }
+
+    /* Product Gallery */
+    .main-prod-img {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #eee;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Tabs Styling */
+    .nav-tabs .nav-link {
+      color: #555;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .nav-tabs .nav-link.active {
+      color: var(--senna-gold-dark) !important;
+      border-color: var(--senna-gold-dark) var(--senna-gold-dark) #fff !important;
+      border-bottom: 3px solid var(--senna-gold-dark) !important;
+    }
+
+    /* Table Styling */
+    .table-custom {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .table-custom th {
+      background-color: var(--senna-gold-dark);
+      color: #ffffff;
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .table-custom td {
+      vertical-align: middle;
+      font-size: 0.88rem;
+    }
+
+    /* Dynamic CCT Badges */
+    [class^="cct-badge-"] {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      font-weight: 600;
+    }
+    .cct-badge-3000 { background-color: #ffe8cc; color: #d97706; }
+    .cct-badge-4000 { background-color: #fef3c7; color: #b45309; }
+    .cct-badge-5700 { background-color: #e0f2fe; color: #0369a1; }
+    .cct-badge-6500 { background-color: #e0f2fe; color: #0284c7; }
+  </style>
 </head>
 
-<body class="portfolio-details-page">
+<body class="index-page">
 
-  <!-- Container Tempat Header Otomatis Dimuat -->
-  <div id="header-placeholder"></div>
+  <!-- Header Section -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo/Logo Senna PT Selaras - CMYK - coklat-resize 320px.webp" alt="Logo PT Selaras Dinamika Niaga" style="max-height: 64px;">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="index.html#about">Tentang Kami</a></li>
+          <li><a href="produk.html" class="active">Produk</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Kontak</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-primary-senna" href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20ingin%20konsultasi%20Downlight%20LED%20OPPLE" target="_blank">Mulai Konsultasi</a>
+
+    </div>
+  </header>
 
   <main class="main">
 
-    <!-- Page Title Section -->
-    <div class="page-title page-title-custom text-center py-5" data-aos="fade">
-      <div class="container position-relative">
-        <nav class="breadcrumbs mb-3">
-          <ol class="breadcrumb justify-content-start mb-0" style="background: transparent;">
+    <!-- Page Title / Breadcrumb (Disesuaikan dengan tema Gambar 1) -->
+    <div class="page-title text-center">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-start mb-2" style="background: transparent;">
             <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
             <li class="breadcrumb-item"><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
             <li class="breadcrumb-item active text-warning" aria-current="page">Downlight LED OPPLE</li>
           </ol>
         </nav>
-        <h1 class="display-5 fw-bold text-warning mb-2">Downlight LED OPPLE</h1>
+        <h1 class="display-5 fw-bold mb-2">Downlight LED OPPLE</h1>
         <p class="lead text-white mb-0">Pencahayaan Plafon Efisien, Bebas Silau, dan Tahan Lama untuk Proyek &amp; Residential</p>
       </div>
     </div>
@@ -57,255 +203,90 @@
         
         <div class="row gy-4 mb-5 align-items-center">
           <!-- Gallery / Product Image Dynamic -->
-          <div class="col-lg-5 text-center">
-            <img id="mainProductImg" src="assets/img/produk/downlight-p2-opple.webp" alt="Downlight LED OPPLE" class="img-fluid rounded shadow-sm main-prod-img mb-3">
+          <div class="col-lg-5">
+            <img id="mainProductImg" src="assets/img/produk/downlight-p2-opple.webp" alt="Downlight LED OPPLE" class="main-prod-img img-fluid">
           </div>
 
           <!-- Product General Overview -->
           <div class="col-lg-7">
-            <h2 style="color: var(--accent-color);">Downlight LED OPPLE Series</h2>
-            <p class="text-muted">Distributor Resmi: PT Selaras Dinamika Niaga (SENNA)</p>
-            <hr>
+            <h2 class="product-detail-title">Downlight LED OPPLE Series</h2>
+            <p class="text-muted small mb-3">Distributor Resmi: PT Selaras Dinamika Niaga (SENNA)</p>
+            <hr class="mb-4">
             
-            <p>
+            <p class="text-muted mb-4">
               Rangkaian Downlight LED OPPLE dirancang untuk memberikan pencahayaan interior yang merata, nyaman di mata, dan efisien dalam penggunaan energi. Sangat cocok diaplikasikan pada hunian modern, perkantoran, pusat perbelanjaan, rumah sakit, hingga area hospitality.
             </p>
 
-            <h5 class="mt-4 mb-3">Keunggulan Utama:</h5>
-            <div class="row">
-              <div class="col-md-6">
-                <ul class="list-unstyled">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Anti-Glare / Bebas Silau:</strong> Menjaga kenyamanan visual pengguna.</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>CRI Tinggi (&gt;80):</strong> Warna objek terlihat natural dan cerah.</li>
-                </ul>
+            <h6 class="fw-bold text-dark mb-3">Keunggulan Utama:</h6>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6 d-flex align-items-start gap-2">
+                <i class="bi bi-check-circle-fill text-warning fs-5 flex-shrink-0"></i>
+                <div><strong class="text-dark">Anti-Glare / Bebas Silau:</strong> <span class="text-muted small">Menjaga kenyamanan visual pengguna.</span></div>
               </div>
-              <div class="col-md-6">
-                <ul class="list-unstyled">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Desain Compact &amp; Ultra Slim:</strong> Memudahkan instalasi di berbagai plafon.</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Performa Andal:</strong> Hemat energi dengan umur pakai panjang.</li>
-                </ul>
+              <div class="col-md-6 d-flex align-items-start gap-2">
+                <i class="bi bi-check-circle-fill text-warning fs-5 flex-shrink-0"></i>
+                <div><strong class="text-dark">Desain Compact &amp; Ultra Slim:</strong> <span class="text-muted small">Memudahkan instalasi di berbagai plafon.</span></div>
+              </div>
+              <div class="col-md-6 d-flex align-items-start gap-2">
+                <i class="bi bi-check-circle-fill text-warning fs-5 flex-shrink-0"></i>
+                <div><strong class="text-dark">CRI Tinggi (&gt;80):</strong> <span class="text-muted small">Warna objek terlihat natural dan cerah.</span></div>
+              </div>
+              <div class="col-md-6 d-flex align-items-start gap-2">
+                <i class="bi bi-check-circle-fill text-warning fs-5 flex-shrink-0"></i>
+                <div><strong class="text-dark">Performa Andal:</strong> <span class="text-muted small">Hemat energi dengan umur pakai panjang.</span></div>
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="mt-4">
-              <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20tertarik%20dengan%20produk%20Downlight%20LED%20OPPLE" class="btn d-inline-flex align-items-center" style="background-color: #b8860b; color: #ffffff; border-radius: 6px; padding: 8px 24px; font-weight: 500; font-size: 16px; border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" target="_blank">
-                <i class="bi bi-whatsapp me-2" style="font-size: 18px;"></i>Kontak kami
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="https://wa.me/6282130720890?text=Halo%20SENNA,%20saya%20ingin%20bertanya%20mengenai%20Downlight%20LED%20OPPLE" class="btn-primary-senna" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-whatsapp me-2"></i>Kontak Kami
               </a>
             </div>
           </div>
         </div>
 
         <!-- Specifications Tabs Section -->
-        <div class="row mt-5">
+        <div class="row">
           <div class="col-12">
-            <h3 class="mb-4" style="color: var(--accent-color);">Spesifikasi Teknis &amp; Varian Produk</h3>
+            <h3 class="fw-bold mb-4 section-title-custom">Matriks Spesifikasi &amp; Varian Produk</h3>
 
             <!-- Navigation Tabs -->
-            <ul class="nav nav-tabs nav-tabs-custom mb-4" id="downlightTab" role="tablist">
+            <ul class="nav nav-tabs" id="downlightTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="p2-tab" data-bs-toggle="tab" data-bs-target="#p2" type="button" role="tab" onclick="changeImage('assets/img/produk/downlight-p2-opple.webp')">
+                <button class="nav-link active" id="p2-tab" data-bs-toggle="tab" data-bs-target="#p2-pane" type="button" role="tab" aria-controls="p2-pane" aria-selected="true" data-img="assets/img/produk/downlight-p2-opple.webp">
                   Seri P2 (Performer II)
                 </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="ecomax-tab" data-bs-toggle="tab" data-bs-target="#ecomax" type="button" role="tab" onclick="changeImage('assets/img/produk/downlight-e3-opple.webp')">
+                <button class="nav-link" id="ecomax-tab" data-bs-toggle="tab" data-bs-target="#ecomax-pane" type="button" role="tab" aria-controls="ecomax-pane" aria-selected="false" data-img="assets/img/produk/downlight-e3-opple.webp">
                   EcoMax E3 Slim
                 </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="us-tab" data-bs-toggle="tab" data-bs-target="#us" type="button" role="tab" onclick="changeImage('assets/img/produk/downlight-us-opple.webp')">
+                <button class="nav-link" id="us-tab" data-bs-toggle="tab" data-bs-target="#us-pane" type="button" role="tab" aria-controls="us-pane" aria-selected="false" data-img="assets/img/produk/downlight-us-opple.webp">
                   Downlight US
                 </button>
               </li>
             </ul>
 
             <!-- Tab Content -->
-            <div class="tab-content pt-3" id="downlightTabContent">
+            <div class="tab-content border border-top-0 p-4 bg-white rounded-bottom" id="downlightTabContent">
               
               <!-- 1. TAB SERI P2 (PERFORMER II) -->
-              <div class="tab-pane fade show active" id="p2" role="tabpanel">
+              <div class="tab-pane fade show active" id="p2-pane" role="tabpanel" aria-labelledby="p2-tab" tabindex="0">
                 <p class="text-muted">Downlight performa tinggi dengan output lumen ekstra besar hingga 6050 lm untuk plafon tinggi, hall, dan area proyek komersial skala besar.</p>
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped align-middle table-custom">
-                    <thead>
-                      <tr>
-                        <th class="text-center" style="width: 50px;">No</th>
-                        <th>Kode Model</th>
-                        <th class="text-center">Daya</th>
-                        <th class="text-center">Cut-out Size</th>
-                        <th class="text-center">Warna Cahaya (CCT)</th>
-                        <th class="text-center">Fluks Cahaya (Lumen)</th>
-                      </tr>
+                  <table class="table table-bordered table-striped align-middle table-custom" id="table-p2-container">
+                    <thead id="table-head-p2">
+                      <!-- Header dinamis -->
                     </thead>
-                    <tbody>
+                    <tbody id="table-body-p2">
                       <tr>
-                        <td class="text-center">1</td>
-                        <td><strong>LEDDownlightRc-PII R125-35W-3000 GP</strong></td>
-                        <td class="text-center">35W</td>
-                        <td class="text-center">Ø125 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">3.325 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">2</td>
-                        <td><strong>LEDDownlightRc-PII R125-35W-4000 GP</strong></td>
-                        <td class="text-center">35W</td>
-                        <td class="text-center">Ø125 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">3.500 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">3</td>
-                        <td><strong>LEDDownlightRc-PII R125-35W-5700 GP</strong></td>
-                        <td class="text-center">35W</td>
-                        <td class="text-center">Ø125 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">3.500 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">4</td>
-                        <td><strong>LEDDownlightRc-PII R150-35W-3000 GP</strong></td>
-                        <td class="text-center">35W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">3.500 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">5</td>
-                        <td><strong>LEDDownlightRc-PII R150-35W-4000 GP</strong></td>
-                        <td class="text-center">35W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">3.675 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">6</td>
-                        <td><strong>LEDDownlightRc-PII R150-35W-5700 GP</strong></td>
-                        <td class="text-center">35W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">3.675 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">7</td>
-                        <td><strong>LEDDownlightRc-PII R150-40W-3000 GP</strong></td>
-                        <td class="text-center">40W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">3.800 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">8</td>
-                        <td><strong>LEDDownlightRc-PII R150-40W-4000 GP</strong></td>
-                        <td class="text-center">40W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">4.000 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">9</td>
-                        <td><strong>LEDDownlightRc-PII R150-40W-5700 GP</strong></td>
-                        <td class="text-center">40W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">4.000 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">10</td>
-                        <td><strong>LEDDownlightRc-PII R150-45W-3000 GP</strong></td>
-                        <td class="text-center">45W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">4.275 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">11</td>
-                        <td><strong>LEDDownlightRc-PII R150-45W-4000 GP</strong></td>
-                        <td class="text-center">45W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">4.500 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">12</td>
-                        <td><strong>LEDDownlightRc-PII R150-45W-5700 GP</strong></td>
-                        <td class="text-center">45W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">4.500 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">13</td>
-                        <td><strong>LEDDownlightRc-PII R200-45W-3000 GP</strong></td>
-                        <td class="text-center">45W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">4.725 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">14</td>
-                        <td><strong>LEDDownlightRc-PII R200-45W-4000 GP</strong></td>
-                        <td class="text-center">45W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">4.950 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">15</td>
-                        <td><strong>LEDDownlightRc-PII R200-45W-5700 GP</strong></td>
-                        <td class="text-center">45W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">4.950 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">16</td>
-                        <td><strong>LEDDownlightRc-PII R200-50W-3000 GP</strong></td>
-                        <td class="text-center">50W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">5.750 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">17</td>
-                        <td><strong>LEDDownlightRc-PII R200-50W-4000 GP</strong></td>
-                        <td class="text-center">50W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">6.000 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">18</td>
-                        <td><strong>LEDDownlightRc-PII R200-50W-5700 GP</strong></td>
-                        <td class="text-center">50W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">6.000 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">19</td>
-                        <td><strong>LEDDownlightRc-PII R200-55W-3000 GP</strong></td>
-                        <td class="text-center">55W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">5.500 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">20</td>
-                        <td><strong>LEDDownlightRc-PII R200-55W-4000 GP</strong></td>
-                        <td class="text-center">55W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">6.050 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">21</td>
-                        <td><strong>LEDDownlightRc-PII R200-55W-5700 GP</strong></td>
-                        <td class="text-center">55W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">6.050 lm</td>
+                        <td class="text-center py-4 text-muted">
+                          <div class="spinner-border spinner-border-sm text-warning me-2" role="status"></div>
+                          Memuat data produk...
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -313,7 +294,7 @@
               </div>
 
               <!-- 2. TAB ECOMAX E3 SLIM -->
-              <div class="tab-pane fade" id="ecomax" role="tabpanel">
+              <div class="tab-pane fade" id="ecomax-pane" role="tabpanel" aria-labelledby="ecomax-tab" tabindex="0">
                 <p class="text-muted mb-2">
                   Downlight tipe ultra-slim dengan efisiensi tinggi, sangat cocok untuk area dengan kedalaman plafon terbatas.
                 </p>
@@ -323,234 +304,16 @@
                 </div>
 
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped align-middle table-custom">
-                    <thead>
-                      <tr>
-                        <th class="text-center" style="width: 50px;">No</th>
-                        <th>Kode Model</th>
-                        <th class="text-center">Bentuk</th>
-                        <th class="text-center">Daya</th>
-                        <th class="text-center">Cut-out Size</th>
-                        <th class="text-center">Warna Cahaya (CCT)</th>
-                        <th class="text-center">Fluks Cahaya (Lumen)</th>
-                      </tr>
+                  <table class="table table-bordered table-striped align-middle table-custom" id="table-ecomax-container">
+                    <thead id="table-head-ecomax">
+                      <!-- Header dinamis -->
                     </thead>
-                    <tbody>
+                    <tbody id="table-body-ecomax">
                       <tr>
-                        <td class="text-center">1</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R100-6W-3000-WH</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">Ø100 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">480 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">2</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R100-6W-4000-WH</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">Ø100 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">480 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">3</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R100-6W-6500-WH</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">Ø100 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">480 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">4</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R150-12W-3000-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">5</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R150-12W-4000-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">6</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R150-12W-6500-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">7</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R200-18W-3000-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">8</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R200-18W-4000-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">9</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R200-18W-6500-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">10</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R200-24W-3000-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">24W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">1.920 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">11</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R200-24W-4000-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">24W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.920 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">12</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII R200-24W-6500-W</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">24W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">1.920 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">13</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S100-6W-3000-WH</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">100 x 100 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">480 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">14</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S100-6W-4000-WH</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">100 x 100 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">480 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">15</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S100-6W-6500-WH</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">100 x 100 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">480 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">16</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S150-12W-3000-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">150 x 150 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">17</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S150-12W-4000-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">150 x 150 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">18</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S150-12W-6500-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">150 x 150 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">19</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S200-18W-3000-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">200 x 200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">20</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S200-18W-4000-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">200 x 200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">21</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S200-18W-6500-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">200 x 200 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">22</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S200-24W-3000-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">24W</td>
-                        <td class="text-center">200 x 200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">1.920 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">23</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S200-24W-4000-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">24W</td>
-                        <td class="text-center">200 x 200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.920 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">24</td>
-                        <td><strong>LEDDownlight Rc-HPF ESIII S200-24W-6500-W</strong></td>
-                        <td class="text-center">Kotak (Square)</td>
-                        <td class="text-center">24W</td>
-                        <td class="text-center">200 x 200 mm</td>
-                        <td class="text-center"><span class="cct-badge-6500">6500K</span></td>
-                        <td class="text-center">1.920 lm</td>
+                        <td class="text-center py-4 text-muted">
+                          <div class="spinner-border spinner-border-sm text-warning me-2" role="status"></div>
+                          Memuat data produk...
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -558,186 +321,22 @@
               </div>
 
               <!-- 3. TAB DOWNLIGHT US -->
-              <div class="tab-pane fade" id="us" role="tabpanel">
+              <div class="tab-pane fade" id="us-pane" role="tabpanel" aria-labelledby="us-tab" tabindex="0">
                 <p class="text-muted mb-2">
                   Seri Utility Downlight dengan efisiensi tinggi, pencahayaan merata, dan ukuran cut-out fleksibel mulai dari ukuran Ø70 mm hingga Ø200 mm.
                 </p>
 
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped align-middle table-custom">
-                    <thead>
-                      <tr>
-                        <th class="text-center" style="width: 50px;">No</th>
-                        <th>Kode Model</th>
-                        <th class="text-center">Bentuk</th>
-                        <th class="text-center">Daya</th>
-                        <th class="text-center">Cut-out Size</th>
-                        <th class="text-center">Warna Cahaya (CCT)</th>
-                        <th class="text-center">Fluks Cahaya (Lumen)</th>
-                      </tr>
+                  <table class="table table-bordered table-striped align-middle table-custom" id="table-us-container">
+                    <thead id="table-head-us">
+                      <!-- Header dinamis -->
                     </thead>
-                    <tbody>
+                    <tbody id="table-body-us">
                       <tr>
-                        <td class="text-center">1</td>
-                        <td><strong>LEDDownlightRc-US R70-4W-3000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">4W</td>
-                        <td class="text-center">Ø70 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">230 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">2</td>
-                        <td><strong>LEDDownlightRc-US R70-4W-4000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">4W</td>
-                        <td class="text-center">Ø70 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">250 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">3</td>
-                        <td><strong>LEDDownlightRc-US R70-4W-5700-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">4W</td>
-                        <td class="text-center">Ø70 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">250 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">4</td>
-                        <td><strong>LEDDownlightRc-US R85-6W-3000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">Ø85 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">400 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">5</td>
-                        <td><strong>LEDDownlightRc-US R85-6W-4000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">Ø85 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">450 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">6</td>
-                        <td><strong>LEDDownlightRc-US R85-6W-5700-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">6W</td>
-                        <td class="text-center">Ø85 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">450 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">7</td>
-                        <td><strong>LEDDownlightRc-US R125-9W-3000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">9W</td>
-                        <td class="text-center">Ø125 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">720 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">8</td>
-                        <td><strong>LEDDownlightRc-US R125-9W-4000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">9W</td>
-                        <td class="text-center">Ø125 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">765 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">9</td>
-                        <td><strong>LEDDownlightRc-US R125-9W-5700-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">9W</td>
-                        <td class="text-center">Ø125 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">765 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">10</td>
-                        <td><strong>LEDDownlightRc-US R150-12W-3000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">960 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">11</td>
-                        <td><strong>LEDDownlightRc-US R150-12W-4000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.020 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">12</td>
-                        <td><strong>LEDDownlightRc-US R150-12W-5700-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">12W</td>
-                        <td class="text-center">Ø150 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">1.020 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">13</td>
-                        <td><strong>LEDDownlightRc-US R175-18W-3000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">Ø175 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">1.440 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">14</td>
-                        <td><strong>LEDDownlightRc-US R175-18W-4000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">Ø175 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.530 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">15</td>
-                        <td><strong>LEDDownlightRc-US R175-18W-5700-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">18W</td>
-                        <td class="text-center">Ø175 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">1.530 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">16</td>
-                        <td><strong>LEDDownlightRc-US R200-22W-3000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">22W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-3000">3000K</span></td>
-                        <td class="text-center">1.760 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">17</td>
-                        <td><strong>LEDDownlightRc-US R200-22W-4000-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">22W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-4000">4000K</span></td>
-                        <td class="text-center">1.870 lm</td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">18</td>
-                        <td><strong>LEDDownlightRc-US R200-22W-5700-WH-GP</strong></td>
-                        <td class="text-center">Bulat (Round)</td>
-                        <td class="text-center">22W</td>
-                        <td class="text-center">Ø200 mm</td>
-                        <td class="text-center"><span class="cct-badge-5700">5700K</span></td>
-                        <td class="text-center">1.870 lm</td>
+                        <td class="text-center py-4 text-muted">
+                          <div class="spinner-border spinner-border-sm text-warning me-2" role="status"></div>
+                          Memuat data produk...
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -753,69 +352,237 @@
 
   </main>
 
-  <!-- Container Tempat Footer Otomatis Dimuat -->
-  <div id="footer-placeholder"></div>
+  <!-- Footer Section -->
+  <footer id="footer" class="footer light-background p-0">
+    <div class="container footer-top py-5">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center mb-3 text-decoration-none">
+            <span class="sitename fw-bold" style="color: #b58125; font-size: 2rem;">SENNA</span>
+          </a>
+          <p style="color: #555555; max-width: 420px; line-height: 1.6;">
+            PT Selaras Dinamika Niaga adalah perusahaan penyedia barang berkualitas tinggi untuk industri, perhotelan, kesehatan, dan pendidikan.
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-6 footer-links">
+          <h4 style="color: #b58125; font-size: 1.1rem; font-weight: 600;" class="mb-3">Navigasi</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-decoration-none" style="color: #555555;">Beranda</a></li>
+            <li class="mb-2"><a href="produk.html" class="text-decoration-none" style="color: #555555;">Katalog Produk</a></li>
+            <li class="mb-2"><a href="index.html#portfolio" class="text-decoration-none" style="color: #555555;">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-6 footer-contact text-start">
+          <h4 style="color: #b58125; font-size: 1.1rem; font-weight: 600;" class="mb-3">Hubungi Kami</h4>
+          <p class="mb-3" style="color: #555555;">Jl. Sunda No. 85 Bandung</p>
+          <p class="mb-1" style="color: #333333;"><strong>Telepon:</strong> <span style="color: #555555;">+62-821-3072-0890</span></p>
+          <p class="mb-0" style="color: #333333;"><strong>Email:</strong> <span style="color: #555555;">info@senna-id.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright text-center py-3" style="background-color: #b58125; color: #ffffff;">
+      <div class="container">
+        <p class="mb-0">© Copyright 2026 <strong>PT Selaras Dinamika Niaga</strong> All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Script Ganti Gambar saat Tab Diklik -->
+  <!-- JavaScript Pengganti Gambar Otomatis Saat Switch Tab -->
   <script>
-    function changeImage(imageSrc) {
-      document.getElementById('mainProductImg').src = imageSrc;
-    }
-  </script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabButtons = document.querySelectorAll('#downlightTab button[data-bs-toggle="tab"]');
+      const mainProductImg = document.getElementById('mainProductImg');
 
-  <!-- Script Pemuat Header & Footer -->
-  <script>
-    // Memuat Header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-
-        // Tandai menu 'Produk' sebagai active secara otomatis
-        const navLinks = document.querySelectorAll('#navmenu a');
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === 'produk.html') {
-            link.classList.add('active');
+      tabButtons.forEach(button => {
+        button.addEventListener('shown.bs.tab', function (event) {
+          const newImgSrc = event.target.getAttribute('data-img');
+          if (newImgSrc && mainProductImg) {
+            mainProductImg.style.opacity = '0.3';
+            setTimeout(() => {
+              mainProductImg.src = newImgSrc;
+              mainProductImg.style.opacity = '1';
+            }, 150);
           }
         });
+      });
+    });
+  </script>
 
-        // Inisialisasi ulang Mobile Nav Toggle bawaan template
-        const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-        if (mobileNavToggleBtn) {
-          mobileNavToggleBtn.addEventListener('click', function() {
-            document.querySelector('body').classList.toggle('mobile-nav-active');
-            this.classList.toggle('bi-list');
-            this.classList.toggle('bi-x');
-          });
+  <!-- Script Mengambil Data Produk Dinamis dari Google Sheets -->
+  <script>
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyD1UcAQu2TFLu7N4Do-39FbeK7gzOcyQHfb3oGcZoeLCQxIsk9noQLDT0JoJXmcH6x/exec?sheet=opple';
+
+    function renderDynamicTable(products, headId, bodyId) {
+      const tableHead = document.getElementById(headId);
+      tableHead.innerHTML = '';
+      const tableBody = document.getElementById(bodyId);
+      tableBody.innerHTML = '';
+
+      if (!products || products.length === 0) {
+        tableBody.innerHTML = '<tr><td class="text-center text-muted py-4">Belum ada data produk tersedia.</td></tr>';
+        return;
+      }
+
+      const ignoredKeys = ['series', 'status'];
+      const allKeys = Object.keys(products[0]).filter(key => !ignoredKeys.includes(key.trim().toLowerCase()));
+      const activeKeys = allKeys.filter(key => {
+        return products.some(item => {
+          const val = item[key];
+          return val !== undefined && val !== null && String(val).trim() !== '' && String(val).trim() !== '-';
+        });
+      });
+
+      let headHtml = '<tr>';
+      activeKeys.forEach((key, index) => {
+        if (index === 0) {
+          headHtml += `<th>${key}</th>`;
+        } else {
+          headHtml += `<th class="text-center">${key}</th>`;
         }
       });
+      headHtml += '</tr>';
+      tableHead.innerHTML = headHtml;
 
-    // Memuat Footer ke #footer-placeholder yang sudah ada
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
+      let bodyHtml = '';
+      products.forEach(item => {
+        const statusKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'status');
+        const statusValue = statusKey ? String(item[statusKey] || '').trim().toLowerCase() : '';
+        const isDiscontinued = statusValue === 'discontinued';
+
+        const rowClass = isDiscontinued ? 'class="table-secondary opacity-75"' : '';
+
+        bodyHtml += `<tr ${rowClass}>`;
+        activeKeys.forEach((key, index) => {
+          let val = item[key] !== undefined && item[key] !== null ? String(item[key]).trim() : '-';
+
+          if (key.toLowerCase().includes('cct') || val.match(/^\d{4}K$/i)) {
+            const numVal = val.replace(/\D/g, '');
+            if (numVal) {
+              val = `<span class="cct-badge-${numVal}">${val}</span>`;
+            }
+          }
+
+          if (index === 0 && isDiscontinued) {
+            val = `<strong>${val}</strong> <span class="badge bg-danger ms-2">Discontinued</span>`;
+          } else if (index === 0) {
+            val = `<strong>${val}</strong>`;
+          }
+
+          if (index === 0) {
+            bodyHtml += `<td>${val}</td>`;
+          } else {
+            bodyHtml += `<td class="text-center">${val}</td>`;
+          }
+        });
+        bodyHtml += '</tr>';
       });
+
+      tableBody.innerHTML = bodyHtml;
+    }
+
+    async function loadProductsFromSheet() {
+      const CACHE_KEY = 'opple_downlight_cache';
+      const CACHE_TIME_KEY = 'opple_downlight_cache_time';
+      const CACHE_DURATION = 10 * 60 * 1000;
+	  
+      try {
+        let data = null;
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+        const now = new Date().getTime();
+		
+        if (cachedData && cachedTime && (now - cachedTime < CACHE_DURATION)) {
+          data = JSON.parse(cachedData);
+        } else {
+          const response = await fetch(GOOGLE_SCRIPT_URL);
+          data = await response.json();
+
+          if (!data.error && Array.isArray(data)) {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+            localStorage.setItem(CACHE_TIME_KEY, now.toString());
+          }
+        }
+
+        if (data.error) {
+          console.error("Error Apps Script:", data.error);
+          const errMsg = `<tr><td class="text-center text-danger py-4">Error: ${data.error}</td></tr>`;
+          document.getElementById('table-body-p2').innerHTML = errMsg;
+          document.getElementById('table-body-ecomax').innerHTML = errMsg;
+          document.getElementById('table-body-us').innerHTML = errMsg;
+          return;
+        }
+
+        if (!Array.isArray(data) || data.length === 0) {
+          const emptyMsg = '<tr><td class="text-center text-warning py-4">Data di Google Sheets kosong.</td></tr>';
+          document.getElementById('table-body-p2').innerHTML = emptyMsg;
+          document.getElementById('table-body-ecomax').innerHTML = emptyMsg;
+          document.getElementById('table-body-us').innerHTML = emptyMsg;
+          return;
+        }
+
+        const getSeriesValue = (item) => {
+          const seriesKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'series');
+          return seriesKey ? String(item[seriesKey] || '').trim().toUpperCase() : '';
+        };
+
+        const getStatusValue = (item) => {
+          const statusKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'status');
+          return statusKey ? String(item[statusKey] || '').trim().toLowerCase() : '';
+        };
+
+        const p2Products = data.filter(item => {
+          const seriesVal = getSeriesValue(item);
+          const statusVal = getStatusValue(item);
+          return seriesVal === 'DL-P2' && statusVal !== 'hidden' && statusVal !== 'nonaktif';
+        });
+
+        const ecomaxProducts = data.filter(item => {
+          const seriesVal = getSeriesValue(item);
+          const statusVal = getStatusValue(item);
+          return seriesVal === 'DL-E3' && statusVal !== 'hidden' && statusVal !== 'nonaktif';
+        });
+
+        const usProducts = data.filter(item => {
+          const seriesVal = getSeriesValue(item);
+          const statusVal = getStatusValue(item);
+          return seriesVal === 'DL-US' && statusVal !== 'hidden' && statusVal !== 'nonaktif';
+        });
+
+        p2Products.sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+        ecomaxProducts.sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+        usProducts.sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+
+        renderDynamicTable(p2Products, 'table-head-p2', 'table-body-p2');
+        renderDynamicTable(ecomaxProducts, 'table-head-ecomax', 'table-body-ecomax');
+        renderDynamicTable(usProducts, 'table-head-us', 'table-body-us');
+
+      } catch (error) {
+        console.error('Gagal mengambil data:', error);
+        const failMsg = '<tr><td class="text-center text-danger py-4">Gagal memuat data produk. Pastikan koneksi/Apps Script benar.</td></tr>';
+        document.getElementById('table-body-p2').innerHTML = failMsg;
+        document.getElementById('table-body-ecomax').innerHTML = failMsg;
+        document.getElementById('table-body-us').innerHTML = failMsg;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadProductsFromSheet);
   </script>
 
 </body>
+
 </html>
