@@ -1,0 +1,25 @@
+<!-- Floating Cart Button -->
+<button id="cart-floating-btn" class="btn btn-warning position-fixed bottom-0 end-0 m-4 rounded-circle shadow-lg p-3" style="display: none; z-index: 1050;" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+  <i class="bi bi-cart-fill fs-4 text-dark"></i>
+  <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    0
+  </span>
+</button>
+
+<!-- Offcanvas Sidebar Keranjang -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+  <div class="offcanvas-header bg-dark text-white">
+    <h5 class="offcanvas-title fw-bold" id="cartOffcanvasLabel"><i class="bi bi-cart-check me-2"></i>Daftar Minta Penawaran</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-between">
+    <div id="cart-items-container">
+      <p class="text-center text-muted py-4">Keranjang penawaran masih kosong.</p>
+    </div>
+    <div class="border-top pt-3 mt-3">
+      <button class="btn btn-success w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2" onclick="sendCartToWhatsApp()">
+        <i class="bi bi-whatsapp fs-5"></i> Kirim Minta Penawaran via WA
+      </button>
+    </div>
+  </div>
+</div>
