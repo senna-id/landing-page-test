@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title id="page-title">Detail Artikel - PT Selaras Dinamika Niaga</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/logo/favicon.webp" rel="icon">
+  <link href="assets/img/logo/favicon.webp" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/theme.css" rel="stylesheet">
+
+  <!-- Markdown Parser & Frontmatter Library -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+</head>
+
+<body class="blog-detail-page">
+
+  <!-- Header Otomatis Dimuat -->
+  <div id="header-container"></div>
+
+  <main class="main">
+
+    <!-- Page Title / Breadcrumbs -->
+    <div class="page-title" data-aos="fade">
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li class="current" id="breadcrumb-title">Detail Artikel</li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Article Content Section -->
+    <section id="blog-details" class="blog-details section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8" id="article-container">
+            
+            <!-- Spinner Pemuatan -->
+            <div class="text-center py-5">
+              <div class="spinner-border text-warning" role="status">
+                <span class="visually-hidden">Memuat artikel...</span>
+              </div>
+              <p class="mt-2 text-muted">Memuat isi artikel...</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Otomatis Dimuat -->
+  <div id="footer-container"></div>
+  <div id="cart-container"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Main & Core JS -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/senna-core.js"></script>
+
+  <!-- Script Pemuat Detail Artikel -->
+  <script>
+    const GITHUB_USER = "senna-id";
+    const GITHUB_REPO = "landing-page-test";
+    const BRANCH = "main"; // Sesuaikan jika menggunakan nama branch lain
+
+    async function loadArticleDetail() {
+      const container = document.getElementById('article-container');
+      const urlParams = new URLSearchParams(window.location.search);
+      const fileName = urlParams.get('file');
+
+      if (!fileName) {
+        container.innerHTML = '<div class="alert alert-danger text-center">Artikel tidak ditemukan.</div>';
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${BRANCH}/blog/${fileName}`);
+        
+        if (!response.ok) {
+          throw new Error('Gagal mengambil isi artikel.');
+        }
+
+        const text = await response.text();
+        const parts = text.split('---');
+
+        if (parts.length >= 3) {
+          const frontmatter = jsyaml.load(parts[1]);
+          const bodyMarkdown = parts.slice(2).join('---');
+
+          const title = frontmatter.title || 'Tanpa Judul';
+          const date = frontmatter.date ? new Date(frontmatter.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+          const image = frontmatter.image ? `<img src="${frontmatter.image}" class="img-fluid rounded mb-4 w-100" alt="${title}" style="max-height: 450px; object-fit: cover;">` : '';
+          
+          // Render Markdown ke HTML
+          const articleHTML = marked.parse(bodyMarkdown);
+
+          // Update Judul Halaman
+          document.getElementById('page-title').innerText = `${title} - PT Selaras Dinamika Niaga`;
+          document.getElementById('breadcrumb-title').innerText = title;
+
+          container.innerHTML = `
+            <article class="article-content bg-white p-4 p-md-5 rounded shadow-sm">
+              <h1 class="fw-bold mb-3">${title}</h1>
+              <div class="text-muted small mb-4 pb-3 border-bottom">
+                <i class="bi bi-calendar3 me-1"></i> ${date}
+              </div>
+              ${image}
+              <div class="content lh-lg">
+                ${articleHTML}
+              </div>
+              <div class="mt-5 pt-4 border-top">
+                <a href="blog.html" class="btn btn-outline-warning text-dark"><i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar Blog</a>
+              </div>
+            </article>
+          `;
+        }
+      } catch (error) {
+        container.innerHTML = `<div class="alert alert-danger text-center">${error.message}</div>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadArticleDetail);
+  </script>
+
+</body>
+</html>
