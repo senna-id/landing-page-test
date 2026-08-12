@@ -27,6 +27,9 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/theme.css" rel="stylesheet">
+
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body class="index-page">
@@ -392,62 +395,20 @@
     }
   </script>
 
-  <!-- Script Pemuat Header, Footer & Prefetch Data -->
+  <!-- Script Core Terpusat (Header, Footer, Cart & Data Produk) -->
   <script src="assets/js/senna-core.js"></script>
+
+  <!-- Script Penangan Netlify Identity Login -->
   <script>
-    // Memuat Header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        const headerContainer = document.getElementById('header-placeholder');
-        if (headerContainer) {
-          headerContainer.innerHTML = data;
-
-          // Hapus semua class active terlebih dahulu
-          const navLinks = document.querySelectorAll('#navmenu a');
-          navLinks.forEach(link => link.classList.remove('active'));
-
-          // Tandai menu yang sesuai halaman aktif saat ini
-          const currentPath = window.location.pathname;
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (currentPath.includes('produk') || currentPath.includes('detail-')) {
-              if (href === 'produk.html') link.classList.add('active');
-            } else {
-              if (href === 'index.html#hero' || href === 'index.html' || href === '#hero') {
-                link.classList.add('active');
-              }
-            }
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
           });
-
-          // Inisialisasi ulang Mobile Nav Toggle bawaan template
-          const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-          if (mobileNavToggleBtn) {
-            mobileNavToggleBtn.addEventListener('click', function() {
-              document.querySelector('body').classList.toggle('mobile-nav-active');
-              this.classList.toggle('bi-list');
-              this.classList.toggle('bi-x');
-            });
-          }
         }
       });
-
-    // Memuat Footer ke #footer-placeholder yang sudah ada
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        const footerContainer = document.getElementById('footer-placeholder');
-        if (footerContainer) {
-          footerContainer.innerHTML = data;
-        }
-      });
-
-    // Prefetch Data Google Sheets di Background
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof loadProductsFromSheet === 'function') {
-        loadProductsFromSheet();
-      }
-    });
+    }
   </script>
 
 </body>
