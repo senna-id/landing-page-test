@@ -278,6 +278,18 @@ h1, h2, h3, h4, h5, h6,
    DETAIL PRODUK SPECIFIC STYLES
    =================================================== */
 
+/* Main Product Image Detail */
+.main-prod-img {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #eee;
+  transition: opacity 0.3s ease-in-out;
+}
+
 /* Thumbnail Gallery */
 .img-thumbnail-custom {
   cursor: pointer;
@@ -398,13 +410,15 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ===================================================
-   CUSTOM TAB SPECIFICATION (SESUAI GAMBAR 2)
+   CUSTOM TAB SPECIFICATION (SUPPORT BOOTSTRAP & CUSTOM)
    =================================================== */
+.nav-tabs,
 .nav-tabs-custom {
   border-bottom: 1px solid #dee2e6;
   gap: 8px;
 }
 
+.nav-tabs .nav-link,
 .nav-tabs-custom .nav-link {
   color: #444444;
   font-weight: 600;
@@ -415,10 +429,12 @@ h1, h2, h3, h4, h5, h6,
   transition: all 0.2s ease-in-out;
 }
 
+.nav-tabs .nav-link:hover,
 .nav-tabs-custom .nav-link:hover {
   background-color: #e9ecef;
 }
 
+.nav-tabs .nav-link.active,
 .nav-tabs-custom .nav-link.active {
   background-color: #b58125 !important;
   color: #ffffff !important;
