@@ -318,11 +318,26 @@ function renderCartUI() {
 }
 
 function sendCartToWhatsApp() {
-  if (cart.length === 0) return;
-  let msg = "Halo SENNA, saya ingin meminta penawaran harga untuk produk berikut:\n\n";
-  cart.forEach((item, i) => { msg += `${i + 1}. *${item.code}* (${item.series}) - Qty: ${item.qty} pcs\n`; });
-  msg += "\nMohon diinformasikan ketersediaan stok dan penawaran harganya. Terima kasih!";
-  window.open(`https://wa.me/6282130720890?text=${encodeURIComponent(msg)}`, '_blank');
+  if (!cart || cart.length === 0) {
+    alert('Keranjang penawaran Anda masih kosong.');
+    return;
+  }
+  
+  let lines = [];
+  lines.push("Halo SENNA, saya ingin meminta penawaran harga untuk produk berikut:");
+  lines.push("");
+  
+  cart.forEach((item, i) => {
+    lines.push(`${i + 1}. *${item.code}* (${item.series}) - Qty: ${item.qty} pcs`);
+  });
+  
+  lines.push("");
+  lines.push("Mohon diinformasikan ketersediaan stok dan penawaran harganya. Terima kasih!");
+  
+  const fullText = lines.join("\n");
+  const waUrl = `https://api.whatsapp.com/send?phone=6282130720890&text=${encodeURIComponent(fullText)}`;
+  
+  window.open(waUrl, '_blank');
 }
 
 // ==========================================
