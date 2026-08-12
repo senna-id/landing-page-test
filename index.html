@@ -391,7 +391,8 @@
     }
   </script>
 
-  <!-- Script Pemuat Header & Footer -->
+  <!-- Script Pemuat Header, Footer & Prefetch Data -->
+  <script src="assets/js/senna-core.js"></script>
   <script>
     // Memuat Header
     fetch('header.html')
@@ -439,6 +440,13 @@
           footerContainer.innerHTML = data;
         }
       });
+
+    // Prefetch Data Google Sheets di Background
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof loadProductsFromSheet === 'function') {
+        loadProductsFromSheet();
+      }
+    });
   </script>
 
 </body>
