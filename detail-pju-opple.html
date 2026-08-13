@@ -208,6 +208,23 @@
   <!-- Core Logic Terpusat -->
   <script src="assets/js/senna-core.js"></script>
 
+  <!-- Script Ganti Gambar Otomatis saat Tab Diklik -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabButtons = document.querySelectorAll('button[data-bs-toggle="tab"]');
+      const mainImg = document.getElementById('mainProductImg');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('shown.bs.tab', function (event) {
+          const newImgSrc = event.target.getAttribute('data-img');
+          if (newImgSrc && mainImg) {
+            mainImg.src = newImgSrc;
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 
 </html>
