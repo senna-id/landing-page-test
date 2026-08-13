@@ -7,9 +7,13 @@ let isGlobalSearchMode = false;
 let cart = JSON.parse(localStorage.getItem('senna_cart')) || [];
 
 // ==========================================
-// DYNAMIC PAGE DETECTION (OPSI 1)
+// DYNAMIC PAGE DETECTION
 // ==========================================
 function getDefaultSeriesFromURL() {
+  if (window.PAGE_DEFAULT_SERIES && Array.isArray(window.PAGE_DEFAULT_SERIES)) {
+    return window.PAGE_DEFAULT_SERIES.map(s => s.toUpperCase());
+  }
+
   const path = window.location.pathname.toLowerCase();
 
   if (path.includes('highbay')) {
@@ -17,12 +21,12 @@ function getDefaultSeriesFromURL() {
   } else if (path.includes('tl-led') || path.includes('waterproof')) {
     return ['TL-E2', 'WP-E2'];
   } else if (path.includes('spotlight')) {
-    return ['SP-P2', 'SP-E2'];
+    return ['SPOT-US', 'SPOT-BK', 'SP-P2', 'SP-E2'];
   } else if (path.includes('panel')) {
     return ['PL-P2', 'PL-E2'];
   }
   
-  // Default jika di halaman downlight-opple.html / detail-downlight-opple.html
+  // Default fallback (Downlight)
   return ['DL-P2', 'DL-E3', 'DL-US'];
 }
 
@@ -31,9 +35,11 @@ function getDefaultSeriesFromURL() {
 // ==========================================
 async function loadComponent(elementId, fileUrl) {
   try {
+    const el = document.getElementById(elementId);
+    if (!el) return;
     const response = await fetch(fileUrl);
     if (response.ok) {
-      document.getElementById(elementId).innerHTML = await response.text();
+      el.innerHTML = await response.text();
       if (elementId === 'cart-container') renderCartUI();
     }
   } catch (error) {
@@ -110,8 +116,10 @@ function renderDynamicTable(products, headId, bodyId, isSearchTable = false) {
     if (isDiscontinued) {
       bodyHtml += `<td class="text-center"><span class="badge bg-secondary">Stok Habis</span></td>`;
     } else {
+      const cleanCode = itemCode.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+      const cleanSeries = itemSeries.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
       bodyHtml += `<td class="text-center">
-        <button class="btn btn-sm btn-outline-warning text-dark fw-bold" onclick="addToCart('${itemCode.replace(/'/g, "\\'")}', '${itemSeries.replace(/'/g, "\\'")}')">
+        <button class="btn btn-sm btn-outline-warning text-dark fw-bold" onclick="addToCart('${cleanCode}', '${cleanSeries}')">
           <i class="bi bi-cart-plus-fill fs-6"></i>
         </button>
       </td>`;
@@ -123,7 +131,7 @@ function renderDynamicTable(products, headId, bodyId, isSearchTable = false) {
 }
 
 // ==========================================
-// GOOGLE SHEETS DATA FETCHING
+// GOOGLE SHEETS DATA FETCHING & AUTOMATIC RENDERING
 // ==========================================
 async function loadProductsFromSheet() {
   const CACHE_KEY = 'opple_products_cache';
@@ -153,7 +161,7 @@ async function loadProductsFromSheet() {
 
       const getSeriesValue = (item) => {
         const k = Object.keys(item).find(x => x.trim().toLowerCase() === 'series');
-        return k ? String(item[k] || '').trim().toUpperCase() : '';
+        return k ? String(item[k] || '').trim().replace(/_/g, '-').toUpperCase() : '';
       };
 
       const getStatusValue = (item) => {
@@ -161,13 +169,46 @@ async function loadProductsFromSheet() {
         return k ? String(item[k] || '').trim().toLowerCase() : '';
       };
 
-      const filterBySeries = (code) => data.filter(i => getSeriesValue(i) === code && getStatusValue(i) !== 'hidden' && getStatusValue(i) !== 'nonaktif')
-        .sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+      const filterBySeries = (code) => {
+        const targetCode = String(code).trim().replace(/_/g, '-').toUpperCase();
+        return data.filter(i => getSeriesValue(i) === targetCode && getStatusValue(i) !== 'hidden' && getStatusValue(i) !== 'nonaktif')
+          .sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
+      };
 
-      // Downlight Rendering
+      // Auto-render Downlight
       renderDynamicTable(filterBySeries('DL-P2'), 'table-head-p2', 'table-body-p2');
       renderDynamicTable(filterBySeries('DL-E3'), 'table-head-ecomax', 'table-body-ecomax');
+
+      // Auto-render Spotlight & Downlight US
       renderDynamicTable(filterBySeries('DL-US'), 'table-head-us', 'table-body-us');
+      renderDynamicTable(filterBySeries('SPOT-US'), 'table-head-us', 'table-body-us');
+      renderDynamicTable(filterBySeries('SPOT-BK'), 'table-head-bk', 'table-body-bk');
+	  
+	  // Auto-render Highbay
+      renderDynamicTable(filterBySeries('HB-E3'), 'table-head-highbay', 'table-body-highbay');
+	 
+	  // Auto-render Panel
+      renderDynamicTable(filterBySeries('EcomaxPIV'), 'table-head-ecomax', 'table-body-ecomax');
+	  
+      // Auto-render LED Tube (TL)
+      renderDynamicTable(filterBySeries('T8-U1'), 'table-head-u1', 'table-body-u1');
+      renderDynamicTable(filterBySeries('T8-U2'), 'table-head-u2', 'table-body-u2');
+	  
+	  // Auto-render Lampu PJU (Streetlight)
+      renderDynamicTable(filterBySeries('STREET-EQ'), 'table-head-eq', 'table-body-eq');
+      renderDynamicTable(filterBySeries('STREET-EA'), 'table-head-ea', 'table-body-ea');
+	  
+	  // Auto-render Bohlam LED (Bulb)
+      renderDynamicTable(filterBySeries('BULB-US'), 'table-head-us', 'table-body-us');
+      renderDynamicTable(filterBySeries('BULB-E-STICK'), 'table-head-stick', 'table-body-stick');
+      renderDynamicTable(filterBySeries('BULB-E-HPB'), 'table-head-hpb', 'table-body-hpb');
+	  
+	  // Auto-render Spot MR16
+      renderDynamicTable(filterBySeries('MR16-12V'), 'table-head-12v', 'table-body-12v');
+      renderDynamicTable(filterBySeries('GX53-220V'), 'table-head-220v', 'table-body-220v');
+	  
+	  // Auto-render Lampu Sorot LED (Floodlight)
+      renderDynamicTable(filterBySeries('FLOOD-E4'), 'table-head-e4', 'table-body-e4');
     }
   } catch (error) {
     console.error('Gagal memuat data produk:', error);
@@ -205,29 +246,31 @@ function toggleSearchScope() {
 }
 
 function filterProducts() {
-  const searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
-  const selectedCct = document.getElementById('cctFilter').value;
-  const selectedWatt = document.getElementById('wattFilter').value.toLowerCase();
+  const searchInputEl = document.getElementById('searchInput');
+  if (!searchInputEl) return;
+
+  const searchKeyword = searchInputEl.value.trim().toLowerCase();
+  const selectedCct = document.getElementById('cctFilter') ? document.getElementById('cctFilter').value : '';
+  const selectedWatt = document.getElementById('wattFilter') ? document.getElementById('wattFilter').value.toLowerCase() : '';
   const searchTabLi = document.getElementById('search-tab-li');
   const searchCountBadge = document.getElementById('search-count');
   const searchBtn = document.getElementById('search-tab');
 
   if (!searchKeyword && !selectedCct && !selectedWatt) {
     if (searchTabLi) searchTabLi.classList.add('d-none');
-    const defaultTab = document.getElementById('p2-tab');
-    if (defaultTab) bootstrap.Tab.getOrCreateInstance(defaultTab).show();
+    const firstTabBtn = document.querySelector('#spotlightTab button[data-bs-toggle="tab"], #downlightTab button[data-bs-toggle="tab"]');
+    if (firstTabBtn) bootstrap.Tab.getOrCreateInstance(firstTabBtn).show();
     return;
   }
 
-  // Deteksi Otomatis Seri Halaman
-  const defaultPageSeries = window.PAGE_DEFAULT_SERIES || getDefaultSeriesFromURL();
+  const defaultPageSeries = getDefaultSeriesFromURL();
 
   const filtered = rawProductsData.filter(item => {
     const statusKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'status');
     if (statusKey && ['hidden', 'nonaktif'].includes(String(item[statusKey] || '').trim().toLowerCase())) return false;
 
     const seriesKey = Object.keys(item).find(k => k.trim().toLowerCase() === 'series');
-    const seriesVal = seriesKey ? String(item[seriesKey] || '').trim().toUpperCase() : '';
+    const seriesVal = seriesKey ? String(item[seriesKey] || '').trim().replace(/_/g, '-').toUpperCase() : '';
 
     if (!isGlobalSearchMode && !defaultPageSeries.includes(seriesVal)) return false;
 
@@ -249,9 +292,9 @@ function filterProducts() {
 }
 
 function resetFilters() {
-  document.getElementById('searchInput').value = '';
-  document.getElementById('cctFilter').value = '';
-  document.getElementById('wattFilter').value = '';
+  if (document.getElementById('searchInput')) document.getElementById('searchInput').value = '';
+  if (document.getElementById('cctFilter')) document.getElementById('cctFilter').value = '';
+  if (document.getElementById('wattFilter')) document.getElementById('wattFilter').value = '';
   filterProducts();
 }
 
@@ -300,6 +343,7 @@ function renderCartUI() {
 
   let html = '<ul class="list-group list-group-flush">';
   cart.forEach(item => {
+    const cleanCartCode = item.code.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
     html += `
       <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
         <div>
@@ -307,9 +351,9 @@ function renderCartUI() {
           <small class="text-muted">Seri: ${item.series}</small>
         </div>
         <div class="d-flex align-items-center gap-2">
-          <button class="btn btn-sm btn-outline-secondary px-2" onclick="updateQty('${item.code.replace(/'/g, "\\'")}', -1)">-</button>
+          <button class="btn btn-sm btn-outline-secondary px-2" onclick="updateQty('${cleanCartCode}', -1)">-</button>
           <span class="fw-bold px-1">${item.qty}</span>
-          <button class="btn btn-sm btn-outline-secondary px-2" onclick="updateQty('${item.code.replace(/'/g, "\\'")}', 1)">+</button>
+          <button class="btn btn-sm btn-outline-secondary px-2" onclick="updateQty('${cleanCartCode}', 1)">+</button>
         </div>
       </li>`;
   });
@@ -345,13 +389,16 @@ function sendCartToWhatsApp() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   loadComponent('header-container', 'header.html');
+  loadComponent('header-placeholder', 'header.html');
   loadComponent('footer-container', 'footer.html');
+  loadComponent('footer-placeholder', 'footer.html');
   loadComponent('cart-container', 'cart-offcanvas.html');
   loadProductsFromSheet();
 
-  // Tab Image Switcher Handler
-  const tabButtons = document.querySelectorAll('#downlightTab button[data-bs-toggle="tab"]');
-  const mainProductImg = document.getElementById('mainProductImg');
+  // Tab Image Switcher Handler (Dukungan untuk #downlightTab dan #spotlightTab)
+  const tabButtons = document.querySelectorAll('#downlightTab button[data-bs-toggle="tab"], #spotlightTab button[data-bs-toggle="tab"]');
+  const mainProductImg = document.getElementById('mainProductImg') || document.getElementById('main-prod-img');
+  
   tabButtons.forEach(button => {
     button.addEventListener('shown.bs.tab', function (event) {
       const newImgSrc = event.target.getAttribute('data-img');
