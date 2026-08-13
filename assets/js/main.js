@@ -21,42 +21,44 @@
   window.addEventListener('load', toggleScrolled);
 
   /**
-   * Mobile nav toggle
+   * Mobile nav toggle (Menggunakan Event Delegation agar tetap berfungsi pada komponen dinamis)
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', function() {
+  document.addEventListener('click', function(e) {
+    const mobileNavToggleBtn = e.target.closest('.mobile-nav-toggle');
+    if (mobileNavToggleBtn) {
       document.querySelector('body').classList.toggle('mobile-nav-active');
       mobileNavToggleBtn.classList.toggle('bi-list');
       mobileNavToggleBtn.classList.toggle('bi-x');
-    });
-  }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        document.querySelector('body').classList.remove('mobile-nav-active');
-        if (mobileNavToggleBtn) {
-          mobileNavToggleBtn.classList.add('bi-list');
-          mobileNavToggleBtn.classList.remove('bi-x');
-        }
-      }
-    });
+    }
   });
 
   /**
-   * Toggle mobile nav dropdowns
+   * Hide mobile nav on same-page/hash links (Menggunakan Event Delegation)
    */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+  document.addEventListener('click', function(e) {
+    const navLink = e.target.closest('#navmenu a');
+    if (navLink && document.querySelector('.mobile-nav-active')) {
+      document.querySelector('body').classList.remove('mobile-nav-active');
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.classList.add('bi-list');
+        mobileNavToggleBtn.classList.remove('bi-x');
+      }
+    }
+  });
+
+  /**
+   * Toggle mobile nav dropdowns (Menggunakan Event Delegation)
+   */
+  document.addEventListener('click', function(e) {
+    const toggleDropdownBtn = e.target.closest('.navmenu .toggle-dropdown');
+    if (toggleDropdownBtn) {
       e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
+      toggleDropdownBtn.parentNode.classList.toggle('active');
+      if (toggleDropdownBtn.parentNode.nextElementSibling) {
+        toggleDropdownBtn.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      }
+    }
   });
 
   /**
