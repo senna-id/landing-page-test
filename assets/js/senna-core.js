@@ -175,40 +175,52 @@ async function loadProductsFromSheet() {
           .sort((a, b) => (getStatusValue(a) === 'discontinued') - (getStatusValue(b) === 'discontinued'));
       };
 
-      // Auto-render Downlight
-      renderDynamicTable(filterBySeries('DL-P2'), 'table-head-p2', 'table-body-p2');
-      renderDynamicTable(filterBySeries('DL-E3'), 'table-head-ecomax', 'table-body-ecomax');
+      const currentPath = window.location.pathname.toLowerCase();
 
-      // Auto-render Spotlight & Downlight US
-      renderDynamicTable(filterBySeries('DL-US'), 'table-head-us', 'table-body-us');
-      renderDynamicTable(filterBySeries('SPOT-US'), 'table-head-us', 'table-body-us');
-      renderDynamicTable(filterBySeries('SPOT-BK'), 'table-head-bk', 'table-body-bk');
-	  
-	  // Auto-render Highbay
-      renderDynamicTable(filterBySeries('HB-E3'), 'table-head-highbay', 'table-body-highbay');
-	 
-	  // Auto-render Panel
-      renderDynamicTable(filterBySeries('EcomaxPIV'), 'table-head-ecomax', 'table-body-ecomax');
-	  
-      // Auto-render LED Tube (TL)
-      renderDynamicTable(filterBySeries('T8-U1'), 'table-head-u1', 'table-body-u1');
-      renderDynamicTable(filterBySeries('T8-U2'), 'table-head-u2', 'table-body-u2');
-	  
-	  // Auto-render Lampu PJU (Streetlight)
-      renderDynamicTable(filterBySeries('STREET-EQ'), 'table-head-eq', 'table-body-eq');
-      renderDynamicTable(filterBySeries('STREET-EA'), 'table-head-ea', 'table-body-ea');
-	  
-	  // Auto-render Bohlam LED (Bulb)
-      renderDynamicTable(filterBySeries('BULB-US'), 'table-head-us', 'table-body-us');
-      renderDynamicTable(filterBySeries('BULB-E-STICK'), 'table-head-stick', 'table-body-stick');
-      renderDynamicTable(filterBySeries('BULB-E-HPB'), 'table-head-hpb', 'table-body-hpb');
-	  
-	  // Auto-render Spot MR16
-      renderDynamicTable(filterBySeries('MR16-12V'), 'table-head-12v', 'table-body-12v');
-      renderDynamicTable(filterBySeries('GX53-220V'), 'table-head-220v', 'table-body-220v');
-	  
-	  // Auto-render Lampu Sorot LED (Floodlight)
-      renderDynamicTable(filterBySeries('FLOOD-E4'), 'table-head-e4', 'table-body-e4');
+      // Pengecekan Halaman Downlight
+      if (currentPath.includes('downlight')) {
+        renderDynamicTable(filterBySeries('DL-P2'), 'table-head-p2', 'table-body-p2');
+        renderDynamicTable(filterBySeries('DL-E3'), 'table-head-ecomax', 'table-body-ecomax');
+        renderDynamicTable(filterBySeries('DL-US'), 'table-head-us', 'table-body-us');
+      } 
+      // Pengecekan Halaman Spotlight
+      else if (currentPath.includes('spotlight')) {
+        renderDynamicTable(filterBySeries('SPOT-US'), 'table-head-us', 'table-body-us');
+        renderDynamicTable(filterBySeries('SPOT-BK'), 'table-head-bk', 'table-body-bk');
+      } 
+      // Pengecekan Halaman Highbay
+      else if (currentPath.includes('highbay')) {
+        renderDynamicTable(filterBySeries('HB-E3'), 'table-head-highbay', 'table-body-highbay');
+      } 
+      // Pengecekan Halaman Panel
+      else if (currentPath.includes('panel')) {
+        renderDynamicTable(filterBySeries('EcomaxPIV'), 'table-head-ecomax', 'table-body-ecomax');
+      } 
+      // Pengecekan Halaman TL / Waterproof
+      else if (currentPath.includes('tl-led') || currentPath.includes('waterproof')) {
+        renderDynamicTable(filterBySeries('T8-U1'), 'table-head-u1', 'table-body-u1');
+        renderDynamicTable(filterBySeries('T8-U2'), 'table-head-u2', 'table-body-u2');
+      } 
+      // Pengecekan Halaman Lampu PJU (Streetlight)
+      else if (currentPath.includes('street') || currentPath.includes('pju')) {
+        renderDynamicTable(filterBySeries('STREET-EQ'), 'table-head-eq', 'table-body-eq');
+        renderDynamicTable(filterBySeries('STREET-EA'), 'table-head-ea', 'table-body-ea');
+      } 
+      // Pengecekan Halaman Bulb / Bohlam
+      else if (currentPath.includes('bulb')) {
+        renderDynamicTable(filterBySeries('BULB-US'), 'table-head-us', 'table-body-us');
+        renderDynamicTable(filterBySeries('BULB-E-STICK'), 'table-head-stick', 'table-body-stick');
+        renderDynamicTable(filterBySeries('BULB-E-HPB'), 'table-head-hpb', 'table-body-hpb');
+      } 
+      // Pengecekan Halaman MR16 / Spot Module
+      else if (currentPath.includes('mr16')) {
+        renderDynamicTable(filterBySeries('MR16-12V'), 'table-head-12v', 'table-body-12v');
+        renderDynamicTable(filterBySeries('GX53-220V'), 'table-head-220v', 'table-body-220v');
+      } 
+      // Pengecekan Halaman Floodlight / Lampu Sorot
+      else if (currentPath.includes('flood')) {
+        renderDynamicTable(filterBySeries('FLOOD-E4'), 'table-head-e4', 'table-body-e4');
+      }
     }
   } catch (error) {
     console.error('Gagal memuat data produk:', error);
